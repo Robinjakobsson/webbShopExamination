@@ -10,6 +10,10 @@
     scroll-behavior: smooth;
 }
 
+h1 {
+  color: #fff;
+}
+
 .cardContainer {
   flex: 0 0 auto;
   width: 200px;
@@ -46,8 +50,6 @@
 
 .cardContainer img:hover {
     box-shadow: 4px 8px 12px rgba(0, 0, 0, 0.4);
-    
-
 }
 
 .cardContainer p {
@@ -60,3 +62,4 @@
   text-overflow: ellipsis;
   white-space: nowrap; 
 }
+

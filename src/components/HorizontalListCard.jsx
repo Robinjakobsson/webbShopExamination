@@ -7,7 +7,9 @@ const HorizontalListCard = ({movie}) => {
     return (
         <>
         <section className="cardContainer">
-            <Link to={'/detail'}>
+            <Link 
+            to='/detail'
+            state={{movie: movie}}>
             <p>{movie.title}</p>
             <img src={`${imgBaseUrl}${size}${movie.poster_path}`} alt="Picture of movie"/>
             </Link>
