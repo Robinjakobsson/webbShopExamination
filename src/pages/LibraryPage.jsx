@@ -19,17 +19,13 @@ useEffect(() => {
   if (status === 'failed') return <p>Error: {error}</p>;
 
     return (
-        <>
-        <header>
-                
-            </header>
+        <section className='librarySection'>
             <HorizontalList movies={movies} text={'Popular movies'} />
             <HorizontalList movies={movies} text={'Top rated movies'} />
             <HorizontalList movies={movies} text={'Currently in theatres'} />
             <HorizontalList movies={movies} text={'Kids movies'} />
             <HorizontalList movies={movies} text={'Upcoming movies'} />
-            
-        </>
+        </section>
     )
 }
 
