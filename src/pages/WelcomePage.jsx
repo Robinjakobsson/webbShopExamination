@@ -14,8 +14,9 @@ const WelcomePage = () => {
     }, [dispatch])
 
     return (
-        <>
-        </>
+        <section className="welcomePage">
+        <Link className="welcomePageBtn" to="/library">Detail Page</Link>
+        </section>
     )
 }
 
