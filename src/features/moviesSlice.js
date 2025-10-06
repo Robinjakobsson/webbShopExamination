@@ -10,7 +10,6 @@ const initialState = {
     error: null,
 }
 
-
 export const fetchMovies = createAsyncThunk("movies/fetchMovies", async () => {
     const response = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${APIKEY}&language=en-US&page=1`);
     const data = await response.json();
