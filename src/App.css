@@ -1,14 +1,30 @@
 .mainContent {
   background-color: rgb(0, 0, 0);
+  flex: 1;
 }
 
-header {
+.mainHeader {
+  background-color: rgb(187, 95, 19);
+  color: white;
+  height: 3rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.mainFooter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3rem;
   background-color: rgb(187, 95, 19);
   color: white;
 }
 
-footer {
-  position: fixed;
-  background-color: rgb(187, 95, 19);
-  color: white;
+.mainGrid {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
