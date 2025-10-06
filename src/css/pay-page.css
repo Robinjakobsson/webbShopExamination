@@ -1,0 +1,99 @@
+body {
+    margin: 0;
+    background-color: black;
+
+}
+.pay-page {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    min-height: 100vh;
+    gap: 20px;
+    box-sizing: border-box;
+    color: white;
+}
+
+.payment-section {
+   
+    display: flex;
+    flex-direction: column;
+
+}
+
+
+.movie-info-section {
+  
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+}
+
+.payment-section, .movie-info-section  {
+    flex: 1 1 50%;
+    padding: 20px;
+}
+
+
+.pay-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    text-align: left;
+    color: rgb(180, 180, 180);
+}
+input {
+    padding: 10px;
+   background-color: rgb(255, 255, 255);
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.date-cvv-row {
+    display: flex;
+    gap: 10px;
+}
+
+.pay-button {
+    background-color:darkolivegreen;
+margin: 5px 100px;
+color: white;
+
+}
+
+.pay-button:hover {
+    background-color: darkgreen;
+}
+
+
+.movie-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: rgb(74, 74, 74);
+    border-radius: 4px;
+}
+.movie-item img {
+    width: 80px;
+    height: 120px;
+    object-fit: cover;
+    margin-right: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.movie-texts {
+
+ display: flex;
+ flex-direction: column;
+justify-content: flex-start;
+text-align: left;
+
+}
