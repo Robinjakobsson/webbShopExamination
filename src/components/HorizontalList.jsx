@@ -4,8 +4,7 @@ const HorizontalList = ({movies, text}) => {
         <>
     <h1>{text}</h1>
     <section className='popularSection'>
-        {movies.map((movie) => (
-            
+        {movies.map((movie) => (    
             <HorizontalListCard key={movie.id} movie={movie}/>
         ))}
         </section>
