@@ -9,8 +9,16 @@ import MovieDetailPage from './pages/MovieDetailPage.jsx'
 import CartPage from './pages/CartPage.jsx'
 import PayPage from './pages/PayPage.jsx'
 import { RouterProvider } from 'react-router'
+import moviesSliceReducer from './features/moviesSlice'
+import { configureStore } from '@reduxjs/toolkit'
+import { Provider } from 'react-redux'
 
 
+const store = configureStore({
+  reducer: {
+    movies: moviesSliceReducer
+  }
+})
 
 
 const router = createHashRouter([
@@ -29,8 +37,10 @@ const router = createHashRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+    <Provider store={store}>
     <RouterProvider router={router}>
     <App />
     </RouterProvider>
+    </Provider>
   </StrictMode>,
 )
