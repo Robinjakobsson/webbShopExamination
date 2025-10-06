@@ -1,16 +1,12 @@
-import { Link } from "react-router";
-
-const HorizontalList = ({movie}) => {
-    const imgBaseUrl = 'https://image.tmdb.org/t/p/'
-    const size = 'w300';
-
+import HorizontalListCard from "./HorizontalListCard"
+const HorizontalList = ({movies, text}) => {
     return (
         <>
-        <section className="cardContainer">
-            <Link to={'/detail'}>
-            <p>{movie.title}</p>
-            <img src={`${imgBaseUrl}${size}${movie.poster_path}`} alt="Picture of movie"/>
-            </Link>
+    <h1>{text}</h1>
+    <section className='popularSection'>
+        {movies.map((movie) => (
+            <HorizontalListCard key={movie.id} movie={movie}/>
+        ))}
         </section>
         </>
     )
