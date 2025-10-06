@@ -5,9 +5,13 @@ import WelcomePage from './pages/WelcomePage'
 function App() {
 
   return (
-    <>
-      <Outlet/>
-    </>
+    <main className='mainGrid'>
+      <header>Header</header>
+        <section className='mainContent'>
+          <Outlet/>
+        </section>
+      <footer>Footer</footer>
+    </main>
   )
 }
 
