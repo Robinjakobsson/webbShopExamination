@@ -12,10 +12,20 @@ const WelcomePage = () => {
     useEffect (() => {
         dispatch(fetchMovies())
     }, [dispatch])
-
+        
     return (
         <section className="welcomePage">
-        <Link className="welcomePageBtn" to="/library">Detail Page</Link>
+            <div className="welcomePageMovieRow">
+            {movies.slice(0, 4).map((movie) => (
+                <div key ={movie.id}>
+                    <Link to={`/movie/${movie.id}`}>
+                    <img className="welcomePageImg" 
+                    src={`https://image.tmdb.org/t/p/w400${movie.poster_path}`}/>
+                    </Link>
+                </div>
+            ))}
+            </div>
+        <Link className="welcomePageBtn" to="/library">Library Page</Link>
         </section>
     )
 }
