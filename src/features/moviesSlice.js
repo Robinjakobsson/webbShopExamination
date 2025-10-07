@@ -1,6 +1,4 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
-
-
 const APIKEY = import.meta.env.VITE_API_KEY;
 
 
