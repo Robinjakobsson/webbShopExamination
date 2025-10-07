@@ -1,0 +1,35 @@
+
+.welcomePage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 90vh;
+    max-width: 100%;
+}
+
+.welcomePageMovieRow {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    overflow-x: auto;
+}
+
+.welcomePageImg {
+    border-radius: 2rem;
+    margin: 0.5rem;
+}
+
+.welcomePageBtn {
+    background-color: rgb(234, 0, 255);
+    border-radius: 1rem;
+    max-width: fit-content;
+    margin-top: 1rem;
+    padding: 0.5rem;
+}
+
+p{
+    color: white;
+}
+
