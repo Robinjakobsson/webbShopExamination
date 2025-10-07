@@ -6,7 +6,7 @@
 .mainHeader {
   display: flex;
   align-items: center;
-  background: linear-gradient(to top, #212121, #333333);
+  background: linear-gradient(to top, var(--background-color), var(--gradient-color));
   height: 2.5rem;
   padding: 0 10px;
 }
@@ -51,7 +51,7 @@
   justify-content: space-around;
   align-items: center;
   height: 3rem;
-  background-color: rgb(187, 95, 19);
+  background-color: rgb(255, 0, 200);
   color: white;
 }
 

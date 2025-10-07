@@ -4,7 +4,7 @@
     grid-template-rows: auto 1fr;
     width: 70%;
     height: 100vh;
-    background: linear-gradient(to bottom, rgb(0, 0, 0), rgb(72, 72, 72), rgb(0, 0, 0));
+    background: linear-gradient(to bottom, var(--background-color), var(--gradient-color), var(--background-color));
     margin: 0 auto;
 }
 
