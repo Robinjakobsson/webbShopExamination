@@ -12,3 +12,8 @@ html, body, #root {
 button:hover {
   cursor: pointer;
 }
+.dark-mode-toggle {
+  background-color: #121212;
+  color: white;
+  min-width: 50px;
+}

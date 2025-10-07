@@ -1,4 +1,5 @@
 import {Link} from 'react-router'
+import DarkModeToggle from './DarkModeToggle';  
 
 
 const HeaderComponent = () => {
@@ -8,6 +9,7 @@ const HeaderComponent = () => {
             <Link to="/">WelcomePage</Link>
             <Link to="/library">Library</Link>
             <Link to="/cart">Cart</Link>
+            <DarkModeToggle />
         </header>
     )
 }
