@@ -38,7 +38,7 @@
 
 .mainFooter {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   height: 3rem;
   background-color: rgb(187, 95, 19);
@@ -50,3 +50,11 @@
   display: flex;
   flex-direction: column;
 }
+
+.mainFooterDeadLinks {
+  display: flex;
+  flex-direction: row;
+}
+
+.mainFooterIcons {
+  }
