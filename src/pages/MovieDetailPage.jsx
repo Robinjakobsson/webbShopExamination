@@ -1,14 +1,21 @@
 import { Link } from 'react-router'
 import { useLocation } from 'react-router'
 import '../css/movie-detail-page.css'
+import { useDispatch, useSelector } from 'react-redux';
+import { addItem } from '../features/cartSlice';
 
 const MovieDetailPage = () => {
     const location = useLocation();
     const {movie} = location.state;
+    const dispatcher = useDispatch();
+    const userCart = useSelector((state) => state.cart.cartItems)
+
     const imgUrl = "https://image.tmdb.org/t/p/w200"
     const releaseDate = movie.release_date;
     const releaseYear = releaseDate.substring(0,4);
     const imgAltDefaultText = "Image of movie "
+
+    console.log(userCart);
 
 
     return (
@@ -31,7 +38,7 @@ const MovieDetailPage = () => {
 
             <section className='detailPageBottomPart'>
                 <article className='detailPageBottomTopPart'>
-                    <button className='detailPageBtnAddMovieToCart'>Add to cart</button>
+                    <button onClick={() => dispatcher(addItem(movie))} className='detailPageBtnAddMovieToCart'>Add to cart</button>
                 </article>
 
                 <article className='detailPageBottomBottomPart'>

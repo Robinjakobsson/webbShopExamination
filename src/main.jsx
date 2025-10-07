@@ -10,13 +10,15 @@ import CartPage from './pages/CartPage.jsx'
 import PayPage from './pages/PayPage.jsx'
 import { RouterProvider } from 'react-router'
 import moviesSliceReducer from './features/moviesSlice'
+import cartReducer from './features/cartSlice'
 import { configureStore } from '@reduxjs/toolkit'
 import { Provider } from 'react-redux'
 
 
 const store = configureStore({
   reducer: {
-    movies: moviesSliceReducer
+    movies: moviesSliceReducer,
+    cart: cartReducer
   }
 })
 
