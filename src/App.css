@@ -1,18 +1,40 @@
 .mainContent {
-  background-color: rgb(0, 0, 0);
+
   flex: 1;
 }
-
+/*HEADER*/
 .mainHeader {
-  background-color: rgb(187, 95, 19);
-  color: white;
-  height: 3rem;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
   align-items: center;
-  gap: 2rem;
+  background: linear-gradient(to top, #212121, #333333);
+  height: 2.5rem;
+  padding: 0 10px;
 }
+
+.mainHeader a {
+  color: white;
+  text-decoration: none;
+  margin-right: 1rem;
+}
+
+.mainHeader :last-child {
+  margin-right: 10px;
+  margin-left: auto;
+}
+
+.middle {
+  display: flex;
+  gap: 1rem;
+  flex: 1;
+  justify-content: center;
+}
+
+.cartLink {
+  margin-left: auto;
+
+}
+
+/*FOOTER*/
 
 .mainFooter {
   display: flex;
