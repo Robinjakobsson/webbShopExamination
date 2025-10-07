@@ -10,7 +10,6 @@ const HorizontalListCard = ({movie}) => {
             <Link 
             to='/detail'
             state={{movie: movie}}>
-            <p>{movie.title}</p>
             <img src={`${imgBaseUrl}${size}${movie.poster_path}`} alt="Picture of movie"/>
             </Link>
         </section>

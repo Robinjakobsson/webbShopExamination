@@ -1,4 +1,8 @@
 import {Link} from 'react-router'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
+import { faHome } from '@fortawesome/free-solid-svg-icons';
+import { faBookOpen } from '@fortawesome/free-solid-svg-icons';
 import DarkModeToggle from './DarkModeToggle';  
 
 
@@ -6,9 +10,17 @@ const HeaderComponent = () => {
 
     return(
         <header className="mainHeader">
-            <Link to="/">WelcomePage</Link>
-            <Link to="/library">Library</Link>
-            <Link to="/cart">Cart</Link>
+            <section className='middle'>
+            <Link to="/">
+            <FontAwesomeIcon icon={faHome} />
+            </Link>
+            <Link to="/library">
+            <FontAwesomeIcon icon={faBookOpen} />
+            </Link>
+            <Link to="/cart" className='cartLink'>
+            <FontAwesomeIcon icon={faCartShopping}/>
+            </Link>
+            </section>
             <DarkModeToggle />
         </header>
     )
