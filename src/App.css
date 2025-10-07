@@ -12,9 +12,19 @@
 }
 
 .mainHeader a {
-  color: white;
+  color: #777777;
   text-decoration: none;
   margin-right: 1rem;
+  transition: .3s ease-in-out;
+}
+
+.mainheader a:active {
+  transform: scale(0.95);
+}
+
+.mainHeader a:hover {
+  color: #fff;
+  transform: scale(1.05);
 }
 
 .mainHeader :last-child {
