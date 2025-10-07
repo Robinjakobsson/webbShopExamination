@@ -19,6 +19,10 @@ export default function DarkModeToggle() {
     }
 
     return (
-        <button className='dark-mode-toggle' onClick={toggleMode} />
+        <div className='darkModeContainer'>
+        <button className='dark-mode-toggle' onClick={toggleMode}> 
+            {mode === 'light' ? 'Switch to 🌙' : 'Switch to ☀️'}
+            </button> 
+    </div>
     )
 }
