@@ -34,7 +34,7 @@ p {
 }
 
 .cardContainer:hover {
-    transform: translateY(-8px);
+    transform: scale(1.05);
 }
 
 .cardContainer a {
@@ -70,5 +70,17 @@ p {
   overflow: hidden;      
   text-overflow: ellipsis;
   white-space: nowrap; 
+}
+
+.showAllText {
+  margin-left: auto;
+  margin-right: 10px;
+  text-decoration: none;
+  color: var(--text-color);
+  transition: .2s;
+}
+
+.showAllText:hover {
+  transform: scale(1.05);
 }
 
