@@ -15,11 +15,11 @@ button:hover {
   cursor: pointer;
 }
 
+
 .darkModeContainer {
   display: flex;
   align-items: center;
   justify-content: center;
-
 }
 
 .dark-mode-toggle {
@@ -44,7 +44,7 @@ background-color: var(--button-background-color);
 }
 
 body[mode='dark'] {
-  --background-color: #121212;
+  --background-color: #212121;
   --text-color: white;
   --button-background-color: #2d3136;
   --button-text-color: white;

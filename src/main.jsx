@@ -13,6 +13,7 @@ import moviesSliceReducer from './features/moviesSlice'
 import cartReducer from './features/cartSlice'
 import { configureStore } from '@reduxjs/toolkit'
 import { Provider } from 'react-redux'
+import GenreDetailPage from './pages/GenreDetailPage.jsx'
 
 
 const store = configureStore({
@@ -33,6 +34,7 @@ const router = createHashRouter([
       {path: '/detail', Component: MovieDetailPage},
       {path: '/cart', Component: CartPage},
       {path: '/pay', Component: PayPage},
+      {path: '/genre', Component: GenreDetailPage}
     ]
   }
 ])
