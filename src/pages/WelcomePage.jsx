@@ -2,7 +2,7 @@ import { Link } from 'react-router'
 import '../css/welcome-page.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react';
-import { fetchMovies } from '../features/moviesSlice';
+import { fetchAllMovies } from '../features/moviesSlice';
 
 const WelcomePage = () => {
 
@@ -10,13 +10,13 @@ const WelcomePage = () => {
     const {movies: movies, status, error} = useSelector((state) => state.movies)
 
     useEffect (() => {
-        dispatch(fetchMovies())
+        dispatch(fetchAllMovies())
     }, [dispatch])
         
     return (
         <section className="welcomePage">
             <div className="welcomePageMovieRow">
-            {movies.slice(0, 4).map((movie) => (
+            {movies.popular?.slice(0, 4).map((movie) => (
                 <div key ={movie.id}>
                     <Link to="/detail" state={{movie}}>
                     <img className="welcomePageImg" 
