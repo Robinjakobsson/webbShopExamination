@@ -34,7 +34,7 @@ p {
 }
 
 .cardContainer:hover {
-    transform: translateY(-8px);
+    transform: scale(1.05);
 }
 
 .cardContainer a {
