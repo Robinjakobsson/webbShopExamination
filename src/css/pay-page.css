@@ -56,11 +56,11 @@ label {
     text-align: left;
     color: rgb(180, 180, 180);
 }
-
+ 
 input {
     padding: 10px;
     background-color: rgb(255, 255, 255);
-    border: 1px solid #ccc;
+    border: 1px solid var(--border-color);
     border-radius: 4px;
     font-size: 16px;
 }
@@ -72,9 +72,9 @@ input {
 }
 
 .pay-button {
-    background-color: darkolivegreen;
+    background-color:  var(--button-background-color);
     margin: 5px 100px;
-    color: white;
+    color: var(--button-text-color);
     border-style: none;
     padding: 10px;
     border-radius: 4px;
@@ -82,7 +82,7 @@ input {
 }
 
 .pay-button:hover {
-    background-color: darkgreen;
+    background-color: var(--button-hover-background-color)
 }
 
 
@@ -101,7 +101,7 @@ input {
     height: 120px;
     object-fit: cover;
     margin-right: 20px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--border-color);
     border-radius: 4px;
 }
 
@@ -118,13 +118,13 @@ input {
     display: flex;
     flex-direction: column;
 
-    color: white;
+   color: var(--text-color)
 }
 
 .payment-complete p {
-    color: rgb(255, 255, 255);
+    color: var(--text-color)
 }
 
 h2 {
-    color: white;
+  color: var(--text-color)
 }
