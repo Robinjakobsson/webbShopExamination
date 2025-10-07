@@ -22,7 +22,8 @@
 }
 
 .welcomePageBtn {
-    background-color: rgb(234, 0, 255);
+    background-color: var(--button-background-color);
+    color: var(--button-text-color);
     border-radius: 1rem;
     max-width: fit-content;
     margin-top: 1rem;
@@ -30,6 +31,6 @@
 }
 
 p{
-    color: white;
+ color: var(--text-color)
 }
 
