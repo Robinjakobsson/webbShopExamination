@@ -16,9 +16,9 @@
 .detailPageBtnReturn {
     display: flex;
     justify-content: center;
-    background-color: rgb(204, 128, 45);
+    background-color: var(--button-background-color);
     padding: 1rem;
-    color: white;
+    color: var(--text-color);
     text-decoration: none;
 }
 
@@ -41,14 +41,14 @@
     padding-top: 1rem;
     padding-left: 2rem;
     padding-right: 2rem;
-    color: white
+    color: var(--text-color);
 }
 
 .detailPageTopInfo {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    color: white;
+    color: var(--text-color);
 }
 
 .detailPageSpecs {
@@ -63,7 +63,8 @@
 }
 
 .detailPageBtnAddMovieToCart {
-    background-color: rgb(204, 128, 45);
+    background-color: var(--button-background-color);
+    color: var(--button-text-color);
     padding: 1rem;
     border: 0;
     border-radius: 2rem;

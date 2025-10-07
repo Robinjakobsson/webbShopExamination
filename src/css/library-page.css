@@ -11,11 +11,11 @@
 }
 
 h1 {
-  color: #fff;
+  color: var(--text-color);
 }
 
 p {
-  color: #fff
+  color: var(--text-color);
 }
 
 .librarySection {
