@@ -1,5 +1,6 @@
 import { useLocation } from 'react-router'
 import '../css/genre-page.css'
+import HorizontalListCard from '../components/HorizontalListCard';
 
 const GenreDetailPage = () => {
     const location = useLocation();
@@ -10,11 +11,17 @@ const GenreDetailPage = () => {
 
     return (
         <>
+
+        <article>
+            
+
+        </article>
+        <section className='genreGrid'>
             {movies.map((movie) => (
-                <p key={movie.id}>{movie.title}</p>
+                <HorizontalListCard key={movie.id} movie={movie} />
             ))}
         
-
+        </section>
         </>
     )
 }
