@@ -26,8 +26,8 @@ const WelcomePage = () => {
             ))}
             </div>
         <Link className="welcomePageBtn" to="/library">Library Page</Link>
-        <p className="welcomePageText">Välkommen till din nästa favoritstream!</p>
-        <p className="welcomePageText">Allt du vill se, på ett ställe!</p>
+        <p className="welcomePageText">Welcome to your favorite Streamingsite!</p>
+        <p className="welcomePageText">Everything there is to watch, in just one place!</p>
         </section>
     )
 }
