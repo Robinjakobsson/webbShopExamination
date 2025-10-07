@@ -13,7 +13,9 @@ body,
 
 button:hover {
   cursor: pointer;
+  background-color: var(--button-hover-background-color)
 }
+
 
 
 .darkModeContainer {
@@ -25,9 +27,9 @@ button:hover {
 .dark-mode-toggle {
   position: relative;
   width: fit-content;
-
   background-color: var(--button-background-color);
   border-radius: 1rem;
+  border-color: var(--border-color);
   max-width: fit-content;
   padding: 0.5rem;
 
@@ -41,7 +43,7 @@ button:hover {
   --button-background-color: #abc9e9;
   --button-text-color: white;
   --border-color: rgb(106, 106, 106);
-  --button-hover-background-color: #a0c6e0;
+  --button-hover-background-color:  #8baac9;
   --link-color: rgb(140, 94, 69);
   --gradient-color: rgb(225, 208, 190);
 }
@@ -52,7 +54,7 @@ body[mode='dark'] {
   --button-background-color: #2d3136;
   --button-text-color: white;
   --border-color: rgb(106, 106, 106);
-  --button-hover-background-color: #a4aaad;
+  --button-hover-background-color:  #8baac9;
   --link-color: rgb(171, 171, 171);
   --gradient-color: #151414;
 }
@@ -65,4 +67,7 @@ body {
 button {
   background-color: var(--button-background-color);
   color: var(--button-text-color);
+  border-radius: 1rem;
+  border: 1px solid var(--border-color);
+  border-color: var(--border-color);
 }

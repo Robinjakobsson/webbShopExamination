@@ -51,7 +51,7 @@
   justify-content: space-around;
   align-items: center;
   height: 3rem;
-  background-color: rgb(255, 0, 200);
+  background: linear-gradient(to top, var(--gradient-color), var(--background-color));
   color: white;
 }
 
