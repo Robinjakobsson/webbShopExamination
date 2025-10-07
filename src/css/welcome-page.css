@@ -22,10 +22,14 @@
 }
 
 .welcomePageBtn {
-    background-color: pink;
+    background-color: rgb(234, 0, 255);
     border-radius: 1rem;
     max-width: fit-content;
     margin-top: 1rem;
     padding: 0.5rem;
+}
+
+p{
+    color: white;
 }
 

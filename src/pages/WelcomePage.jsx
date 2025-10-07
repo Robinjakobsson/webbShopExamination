@@ -18,7 +18,7 @@ const WelcomePage = () => {
             <div className="welcomePageMovieRow">
             {movies.slice(0, 4).map((movie) => (
                 <div key ={movie.id}>
-                    <Link to={`/movie/${movie.id}`}>
+                    <Link to="/detail" state={{movie}}>
                     <img className="welcomePageImg" 
                     src={`https://image.tmdb.org/t/p/w400${movie.poster_path}`}/>
                     </Link>
@@ -26,6 +26,8 @@ const WelcomePage = () => {
             ))}
             </div>
         <Link className="welcomePageBtn" to="/library">Library Page</Link>
+        <p className="welcomePageText">Välkommen till din nästa favoritstream!</p>
+        <p className="welcomePageText">Allt du vill se, på ett ställe!</p>
         </section>
     )
 }
