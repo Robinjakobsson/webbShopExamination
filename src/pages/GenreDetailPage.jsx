@@ -1,10 +1,19 @@
+import { useLocation } from 'react-router'
 import '../css/genre-page.css'
 
 const GenreDetailPage = () => {
+    const location = useLocation();
+    const { movies } = location.state;
+
+
+
+
     return (
         <>
-
-            <h2>GenrePage</h2>
+            {movies.map((movie) => (
+                <p key={movie.id}>{movie.title}</p>
+            ))}
+        
 
         </>
     )

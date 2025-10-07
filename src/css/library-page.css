@@ -72,3 +72,15 @@ p {
   white-space: nowrap; 
 }
 
+.showAllText {
+  margin-left: auto;
+  margin-right: 10px;
+  text-decoration: none;
+  color: var(--text-color);
+  transition: .2s;
+}
+
+.showAllText:hover {
+  transform: scale(1.05);
+}
+

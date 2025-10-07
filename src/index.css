@@ -16,7 +16,7 @@ button:hover {
 }
 
 .dark-mode-toggle {
-  background-color: #121212;
+  background-color: #212121;
   color: white;
   min-width: 50px;
 }
@@ -33,7 +33,7 @@ button:hover {
 }
 
 body[mode='dark'] {
-  --background-color: #121212;
+  --background-color: #212121;
   --text-color: white;
   --button-background-color: #2d3136;
   --button-text-color: white;
