@@ -1,18 +1,11 @@
 import { useState } from 'react';
 import '../css/pay-page.css'
-
-const movies = [
-    { id: 1, title: 'Movie 1', price: 10, image: 'url1' },
-    { id: 2, title: 'Movie 2', price: 15, image: 'url2' },
-    { id: 3, title: 'Movie 3', price: 20, image: 'url3' },
-    { id: 4, title: 'Movie 4', price: 10, image: 'url1' },
-    { id: 5, title: 'Movie 5', price: 15, image: 'url2' },
-    { id: 6, title: 'Movie 6', price: 20, image: 'url3' },
-
-]
+import { useSelector } from 'react-redux';
 
 const PayPage = () => {
-    const totalPrice = movies.reduce((total, movie) => total + movie.price, 0);
+    const cartItems = useSelector((state) => state.cart.cartItems);
+    console.log(cartItems)
+    const totalPrice = cartItems.reduce((total, movie) => total + movie.price, 0);
 
     function backToLibrary() {
         window.location.href = '#/library';
@@ -75,7 +68,7 @@ const PayPage = () => {
                 </section>
 
                 <section className="pp-movie-info-section">
-                    {movies.map((movie) => (
+                    {cartItems.map((movie) => (
                         <div key={movie.id} className="pp-movie-item">
                             <img
                                 src={movie.image}

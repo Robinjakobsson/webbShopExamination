@@ -1,7 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux'
 import '../css/cart-page.css'
-import { decreaseQuantity, deleteItem, increaseQuantity } from '../features/cartSlice';
+import { addItem, decreaseQuantity, deleteItem, increaseQuantity } from '../features/cartSlice';
 import binIcon from '../assets/bin-icon.png';
+import { Link } from 'react-router';
 
 const CartPage = () => {
     const dispatcher = useDispatch();
@@ -60,7 +61,7 @@ const CartPage = () => {
                             <p>Total: 459 SEK</p>
                         </section>
 
-                        <button className='cartPageBtnPay'>CONTINUE TO PAYMENT</button>
+                        <Link to ="/pay" className='cartPageBtnPay'>CONTINUE TO PAYMENT</Link>
                     </section>
                     
                 )}
