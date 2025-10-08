@@ -1,9 +1,9 @@
 
 .detailPage {
+    /* flex: 1; */
     display: grid;
     grid-template-rows: auto 1fr;
-    width: 70%;
-    height: 100vh;
+    min-height: 90vh;
     background: linear-gradient(to bottom, var(--background-color), var(--gradient-color), var(--background-color));
     margin: 0 auto;
 }
@@ -13,18 +13,8 @@
     flex-direction: column;
 }
 
-.detailPageBtnReturn {
-    display: flex;
-    justify-content: center;
-    background-color: var(--button-background-color);
-    padding: 1rem;
-    color: var(--text-color);
-    text-decoration: none;
-}
-
 .detailPageTopBottomPart {
     display: flex;
-    flex-direction: row;
     gap: 2rem;
     padding-top: 2rem;
     padding-left:  1rem;
@@ -34,21 +24,29 @@
     border-radius: 0.6rem;
 }
 
-.detailPageBottomPart {
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-    padding-top: 1rem;
-    padding-left: 2rem;
-    padding-right: 2rem;
-    color: var(--text-color);
-}
-
 .detailPageTopInfo {
     display: flex;
     flex-direction: column;
     justify-content: center;
     color: var(--text-color);
+}
+
+.detailPageBottomPart {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    color: var(--text-color);
+}
+
+.detailPageBottomBottomPart {
+    display: flex;
+    margin-bottom: 2rem;
+}
+
+.detailPageMovieOverview {
+    font-size: 1rem;
 }
 
 .detailPageSpecs {
@@ -57,27 +55,68 @@
     gap: 3rem;
 }
 
-.detailPageMovieOverview {
-    font-size: 1rem;
-    width: 60%;
-}
-
 .detailPageBtnAddMovieToCart {
     background-color: var(--button-background-color);
     color: var(--button-text-color);
     padding: 1rem;
-    
     border-radius: 2rem;
     font-size: 1.2rem;
-}
-
-.detailPageBottomBottomPart {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
 }
 
 .detailPageLanguageInfo {
     font-size: 0.6rem;
     width: 20%;
 }
+
+@media(max-width: 440px) {
+    .detailPage {
+        width: 95%;
+    }
+
+    .detailPageTopBottomPart {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .detailPageBottomPart {
+        align-items: center;
+        padding-top: 2rem;
+    }
+
+    .detailPageBottomBottomPart {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .detailPageMovieOverview {
+        font-size: 1rem;
+        width: 100%;
+    }
+}
+
+@media(min-width: 440px) {
+    .detailPage {
+        width: 70%;
+    }
+
+    .detailPageTopBottomPart {
+        flex-direction: row;
+        padding-top: 1rem;
+    }
+
+    .detailPageBottomPart {
+        padding-top: 1rem;
+    }
+
+    .detailPageBottomBottomPart {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .detailPageMovieOverview {
+        font-size: 1rem;
+        width: 60%;
+    }
+}
+
