@@ -1,13 +1,10 @@
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import '../css/cart-page.css'
-import { addItem, decreaseQuantity, deleteItem, increaseQuantity } from '../features/cartSlice';
-import binIcon from '../assets/bin-icon.png';
+import SingleCartItemComponent from '../components/SingleCartItemComponent';
 import { Link } from 'react-router';
 
 const CartPage = () => {
-    const dispatcher = useDispatch();
     const userCart = useSelector((state) => state.cart.cartItems);
-    const imgUrl = "https://image.tmdb.org/t/p/w92"
 
     return (
         <section className='cartPage'>
@@ -19,38 +16,7 @@ const CartPage = () => {
 
             <section className='cartPageCartItems'>
                 {userCart.map((item) => (
-                    <article key={item.movie.title} className='cartPageSingleCartItem'>
-                        <article className='cartPageCartItemImgAndQuantity'>
-                            <img className='cartPageMovieImg' src={`${imgUrl}${item.movie.poster_path}`}/>
-                            <article className='cartPageItemInfo'>
-                                <p>{item.movie.title}</p>
-                                <article className='cartPageItemQuantity'>
-                                    <p>{item.quantity}</p>
-                                    <article className='cartPageBtnQuantityContainer'>
-                                        <button 
-                                            onClick={() => dispatcher(decreaseQuantity(item))} 
-                                            className={`cartPageBtnSubtractQuantity ${item.quantity > 1 ? "several" : "one"}`}
-                                            disabled={item.quantity <= 1}
-                                        >
-                                            -
-                                        </button>
-                                        <button onClick={() => dispatcher(increaseQuantity(item))} className='cartPageBtnAddQuantity'>+</button>
-                                    </article>
-                                </article>
-                            </article>
-                        </article>
-
-                        <article className='cartPageDeleteBtnAndPriceContainer'>
-                            <p>149 kr</p>
-                            <button onClick={() => dispatcher(deleteItem(item))} className='cartPageBtnDeleteCartItem'>
-                                {/* Delete */}
-                                <img src={binIcon} style={{height: "1.5rem", width: "auto"}}></img>
-                            </button>
-                        </article>
-                        
-
-                        
-                    </article>
+                    <SingleCartItemComponent key={item.movie.title} item={item} />
                 ))}
             </section>
 
