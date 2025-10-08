@@ -3,7 +3,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: rgb(43, 43, 43);
+    background: linear-gradient(to bottom, var(--background-color), var(--gradient-color), var(--background-color));
+   
     width: 70vw;
     margin: 0 auto;
     border-radius: 0.3rem;

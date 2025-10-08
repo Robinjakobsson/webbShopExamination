@@ -29,10 +29,10 @@ const PayPage = () => {
 
     if (!paid) {
         return (
-            <div className="pay-page">
-                <section className="payment-section">
-                    <h1>Your order</h1>
-                    <form className='pay-form'
+            <div className="pp-pay-page">
+              
+                <section className="pp-payment-section">
+                    <form className='pp-pay-form'
 
                         onSubmit={handleSubmit}
 
@@ -47,7 +47,7 @@ const PayPage = () => {
     </div>
 */}
 
-                        <div className="date-cvv-row">
+                        <div className="pp-date-cvv-row">
                             <label>
                                 <span>Date:</span>
                                 <input type="text" placeholder='MM/YY' required />
@@ -64,23 +64,23 @@ const PayPage = () => {
                             <input type="text" placeholder='Name as on the card' required />
                         </label>
 
-                        <div className="remember-toggle">
+                        <div className="pp-remember-toggle">
                             <input type="checkbox" />
                             <span> Remember this card</span>
 
                         </div>
-                        <button type="submit" className='pay-button'>Pay {totalPrice}kr.</button>
+                        <button type="submit" className='pp-pay-button'>Pay {totalPrice}kr.</button>
 
                     </form>
                 </section>
 
-                <section className="movie-info-section">
+                <section className="pp-movie-info-section">
                     {movies.map((movie) => (
-                        <div key={movie.id} className="movie-item">
+                        <div key={movie.id} className="pp-movie-item">
                             <img
                                 src={movie.image}
                                 alt="no image" />
-                            <div className="movie-texts">
+                            <div className="pp-movie-texts">
                                 <h2>{movie.title}</h2>
                                 <p>Price: {movie.price}kr.</p>
                             </div>
@@ -92,7 +92,7 @@ const PayPage = () => {
         )
     } else {
         return (
-            <div className="payment-complete">
+            <div className="pp-payment-complete">
                 <h1>Thank you for your purchase!</h1>
                 <p>Your order number is {Math.floor(Math.random() * 1000 + 1)}.</p>
                 <button onClick={backToLibrary}>Back to Library</button>

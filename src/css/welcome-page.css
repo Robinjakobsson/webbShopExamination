@@ -28,6 +28,12 @@
     max-width: fit-content;
     margin-top: 1rem;
     padding: 0.5rem;
+      border: 1px solid var(--border-color);
+
+}
+.welcomePageBtn:hover {
+    cursor: pointer;
+    background-color: var(--button-hover-background-color)
 }
 
 p{
