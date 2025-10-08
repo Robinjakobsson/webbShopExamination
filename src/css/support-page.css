@@ -1,0 +1,41 @@
+.supportPageSection {
+    padding: 20px;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.email, .phone {
+    flex: 1;
+    text-align: center;
+  
+    border-radius: 1rem;
+    padding: 10px;
+    max-width: 50%;
+}
+
+.emailPhoneContainer {
+    display: flex;
+   flex-direction: column;
+    width: 100%;
+    margin-top: 20px;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.phoneData, .emailData {
+      border: 1px solid var(--border-color);
+    border-radius: 1rem;
+    padding: 10px;
+
+}
+a {
+    color: var(--link-color);
+    text-decoration: none;
+}

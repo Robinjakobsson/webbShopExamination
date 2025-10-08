@@ -7,7 +7,7 @@ const FooterComponent = () => {
     return(
         <footer className="mainFooter">
 
-            <Link className="mainFooterDeadLinks" to="/">
+            <Link className="mainFooterDeadLinks" to="/support">
             <p>Support</p></Link>
             <Link className="mainFooterDeadLinks" to="/">
             <p>Cookie-policy</p></Link>

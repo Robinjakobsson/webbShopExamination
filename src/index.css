@@ -44,7 +44,7 @@ button:hover {
   --button-text-color: white;
   --border-color: rgb(106, 106, 106);
   --button-hover-background-color:  #8baac9;
-  --link-color: rgb(140, 94, 69);
+  --link-color: #8baac9;
   --gradient-color: rgb(225, 208, 190);
 }
 
@@ -55,7 +55,7 @@ body[mode='dark'] {
   --button-text-color: white;
   --border-color: rgb(106, 106, 106);
   --button-hover-background-color:  #8baac9;
-  --link-color: rgb(171, 171, 171);
+  --link-color: #8baac9;
   --gradient-color: #151414;
 }
 
