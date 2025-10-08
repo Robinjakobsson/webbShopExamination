@@ -1,8 +1,26 @@
 import { createSlice } from "@reduxjs/toolkit"
 
+const loadCartFromLocalStorage = () => {
+    try {
+        const savedCart = localStorage.getItem("cartItems");
+        return savedCart ? JSON.parse(savedCart) : [];
+    } catch (error) {
+        console.error("Could not fetch cart from local storage: ", error);
+        return [];
+    }
+}
+
+const saveCartToLocalStorage = (cartItems) => {
+    try {
+        localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    } catch (error) {
+        console.error("Could not save cart to local storage: ", error);
+    }
+}
+
 
 const initialState = {
-    cartItems : []
+    cartItems : loadCartFromLocalStorage()
 }
 
 const cartSlice = createSlice({
@@ -19,6 +37,8 @@ const cartSlice = createSlice({
             } else {
                 state.cartItems.push(newItem);
             }
+
+            saveCartToLocalStorage(state.cartItems);
         },
         deleteItem: (state, action) => {
             const itemToDelete = action.payload;
@@ -27,6 +47,8 @@ const cartSlice = createSlice({
             if(existingItem) {
                 state.cartItems = state.cartItems.filter(item => item.movie.title !== existingItem.movie.title);
             }
+
+            saveCartToLocalStorage(state.cartItems);
         },
         increaseQuantity: (state, action) => {
             const itemToEdit = action.payload;
@@ -35,6 +57,8 @@ const cartSlice = createSlice({
             if(existingItem) {
                 existingItem.quantity += 1;
             }
+
+            saveCartToLocalStorage(state.cartItems);
         },
         decreaseQuantity: (state, action) => {
             const itemToEdit = action.payload;
@@ -45,6 +69,8 @@ const cartSlice = createSlice({
                     existingItem.quantity -= 1
                 }
             }
+
+            saveCartToLocalStorage(state.cartItems);
         }
 
     }

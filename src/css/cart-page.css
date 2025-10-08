@@ -4,11 +4,9 @@
     flex-direction: column;
     align-items: center;
     background: linear-gradient(to bottom, var(--background-color), var(--gradient-color), var(--background-color));
-   
-    width: 70vw;
     margin: 0 auto;
     border-radius: 0.3rem;
-    height: 85vh;
+    margin-bottom: 3rem;
 }
 
 .cartPageTitle {
@@ -23,9 +21,7 @@
 .cartPageCartItems {
     display: flex;
     flex-direction: column;
-    padding: 2rem;
     gap: 0.6rem;
-    width: 55vw;
 }
 
 .cartPageSingleCartItem {
@@ -49,7 +45,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-right: 1rem;
     font-size: 0.7rem;
     gap: 0.5rem;
 }
@@ -61,7 +56,6 @@
 .cartPageItemInfo {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
     justify-content: center;
 }
 
@@ -105,14 +99,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-
 }
 
 .cartPageTotalSum {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
-    width: 47vw;
+    width: 100%;
 }
 
 .cartPageBtnPay {
@@ -120,7 +113,62 @@
     align-items: center;
     justify-content: center;
     height: 2rem;
-    width: 30vw;
     margin-top: 3rem;
     padding: 1rem;
+}
+
+@media(max-width: 440px) {
+    .cartPage {
+        width: 100vw;
+    }
+
+    .cartPageCartItems {
+        width: 100%;
+        padding: 0.7rem;
+    }
+
+    .cartPageItemInfo {
+        gap: 1rem;
+    }
+
+    .cartPageDeleteBtnAndPriceContainer {
+        padding-right: 0.3rem;
+        width: 15vw;
+    }
+
+    .cartPagePay {
+        width: 95vw;
+    }
+
+    .cartPageBtnPay {
+        width: 50vw;
+    }
+}
+
+@media(min-width: 440px) {
+    .cartPage {
+        width: 70vw;
+    }
+
+    .cartPageCartItems {
+        width: 55vw;
+        padding: 2rem;
+    }
+
+    .cartPageItemInfo {
+        gap: 0.5rem;
+    }
+
+    .cartPageDeleteBtnAndPriceContainer {
+        padding-right: 1rem;
+        width: 5vw;
+    }
+
+    .cartPagePay {
+        width: 49vw;
+    }
+
+    .cartPageBtnPay {
+        width: 20vw;
+    }
 }
