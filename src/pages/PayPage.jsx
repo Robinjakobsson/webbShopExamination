@@ -5,7 +5,8 @@ import { useSelector } from 'react-redux';
 const PayPage = () => {
     const cartItems = useSelector((state) => state.cart.cartItems);
     console.log(cartItems)
-    const totalPrice = cartItems.reduce((total, movie) => total + movie.price, 0);
+    const imgUrl = "https://image.tmdb.org/t/p/w92"
+    const totalPrice = cartItems.reduce((total, movie) => total + (movie.price * movie.quantity), 0);
 
     function backToLibrary() {
         window.location.href = '#/library';
@@ -68,14 +69,14 @@ const PayPage = () => {
                 </section>
 
                 <section className="pp-movie-info-section">
-                    {cartItems.map((movie) => (
-                        <div key={movie.id} className="pp-movie-item">
+                    {cartItems.map((item) => (
+                        <div key={item.movie.id} className="pp-movie-item">
                             <img
-                                src={movie.image}
+                                src={`${imgUrl}${item.movie.poster_path}`}
                                 alt="no image" />
                             <div className="pp-movie-texts">
-                                <h2>{movie.title}</h2>
-                                <p>Price: {movie.price}kr.</p>
+                                <h2>{item.movie.title}</h2>
+                                <p>Price: {item.price * item.quantity} kr.</p>
                             </div>
                         </div>
                     ))}
