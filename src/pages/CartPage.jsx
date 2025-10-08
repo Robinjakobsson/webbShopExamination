@@ -1,9 +1,11 @@
 import { useSelector } from 'react-redux'
 import '../css/cart-page.css'
 import SingleCartItemComponent from '../components/SingleCartItemComponent';
+import { Link } from 'react-router';
 
 const CartPage = () => {
     const userCart = useSelector((state) => state.cart.cartItems);
+    const totalPrice = userCart.reduce((total, movie) => total + (movie.price * movie.quantity), 0);
 
     return (
         <section className='cartPage'>
@@ -19,15 +21,18 @@ const CartPage = () => {
                 ))}
             </section>
 
-            {userCart.length > 0 && (
-                <section className='cartPagePay'>
-                    <section className='cartPageTotalSum'>
-                        {/* Här är tanken att räkna ut totala summan om vi får till ett pris på varje film. Just nu bara placeholder. */}
-                        <p>Total: 459 SEK</p>
+                {userCart.length > 0 && (
+                    <section className='cartPagePay'>
+                        <section className='cartPageTotalSum'>
+                            {/* Här är tanken att räkna ut totala summan om vi får till ett pris på varje film. Just nu bara placeholder. */}
+                            <p>Total: {totalPrice} SEK</p>
+                        </section>
+
+                        <Link to ="/pay" className='cartPageBtnPay'>CONTINUE TO PAYMENT</Link>
                     </section>
-                    <button className='cartPageBtnPay'>CONTINUE TO PAYMENT</button>
-                </section> 
-            )}
+                    
+                )}
+            
         </section>
     )
 }

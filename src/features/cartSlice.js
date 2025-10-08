@@ -29,7 +29,9 @@ const cartSlice = createSlice({
     reducers: {
         addItem: (state, action) => {
             const newMovie = action.payload;
-            const newItem = {movie: newMovie, quantity: 1}
+            const id = newMovie.id;
+            const price = Number(String(id).slice(0, 3));
+            const newItem = {movie: newMovie, quantity: 1, price: price}
             const existingItem = state.cartItems.find(item => item.movie.title === newItem.movie.title);
 
             if(existingItem) {

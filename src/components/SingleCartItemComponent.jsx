@@ -16,7 +16,8 @@ const SingleCartItemComponent = ({item}) => {
                     <article className='cartPageItemInfo'>
                         <p>{item.movie.title}</p>
                         <article className='cartPageItemQuantity'>
-                            <p>{item.quantity}</p>
+                            <p className="cartPageItemQuantityP">{item.quantity}</p>
+                            <p>à {item.price} SEK</p>
                             <article className='cartPageBtnQuantityContainer'>
                                 <button 
                                     onClick={() => dispatcher(decreaseQuantity(item))} 
@@ -32,7 +33,7 @@ const SingleCartItemComponent = ({item}) => {
                 </article>
 
                 <article className='cartPageDeleteBtnAndPriceContainer'>
-                    <p>149 kr</p>
+                    <p> {item.price * item.quantity} kr</p>
                     <button onClick={() => dispatcher(deleteItem(item))} className='cartPageBtnDeleteCartItem'>
                         <img src={binIcon} style={{height: "1.5rem", width: "auto"}}></img>
                     </button>
