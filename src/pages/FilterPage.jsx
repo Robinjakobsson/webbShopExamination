@@ -1,7 +1,9 @@
+import '../css/filter-page.css'
+
 const FilterPage = () => {
     return (
         <>
-            <h2>FilterPage</h2>
+           <section className=''></section>
         
         </>
     )

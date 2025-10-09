@@ -20,7 +20,7 @@ const initialState = {
          */
 export const fetchAllMovies = createAsyncThunk("movies/fetchAllMovies", async () => {
     const endpoints = {
-        // placing all Endpoints in an object Endpoints
+        // placing all endpoints in an object called endpoints
         popular: `https://api.themoviedb.org/3/movie/popular?api_key=${APIKEY}&language=en-US&page=1`,
         topRated: `https://api.themoviedb.org/3/movie/top_rated?api_key=${APIKEY}&language=en-US&page=1`,
         upcoming: `https://api.themoviedb.org/3/movie/upcoming?api_key=${APIKEY}&language=en-US&page=1`,
