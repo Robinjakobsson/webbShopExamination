@@ -11,7 +11,7 @@ body {
     min-height: 100vh;
     gap: 50px;
     box-sizing: border-box;
-    color: white;
+    color: var(--text-color);
     margin-top: 100px;
 }
 
@@ -23,6 +23,7 @@ body {
     border-radius: 1rem;
     height: fit-content;
     margin-left: 50px;
+    padding: 20px;
 }
 
 .pp-payment-section h1 {
@@ -42,7 +43,7 @@ body {
 .pp-payment-section,
 .pp-movie-info-section {
     flex: 1 1 50%;
-    padding: 20px;
+
 }
 
 
@@ -84,7 +85,7 @@ input {
     font-size: 16px;
 }
 
-.pp-pay-button:hover {
+button :hover {
     background-color: var(--button-hover-background-color)
 }
 
@@ -93,10 +94,11 @@ input {
     display: flex;
     align-items: end;
     padding: 10px;
-    background-color: rgb(74, 74, 74);
+    border: 1px solid var(--border-color);
     border-radius: 4px;
     width: fit-content;
-    min-width: 300px;
+    width: 300px;
+
 }
 
 .pp-movie-item img {
@@ -108,7 +110,7 @@ input {
     border-radius: 4px;
 }
 
-pp-movie-texts {
+.pp-movie-texts {
 
     display: flex;
     flex-direction: column;
@@ -117,17 +119,94 @@ pp-movie-texts {
 
 }
 
-.payment-comlpete {
+.pp-payment-complete {
     display: flex;
     flex-direction: column;
-
-    color: var(--text-color)
+    align-items: center;
+    justify-content: center;
+    color: var(--text-color);
+    text-align: center;
+    height: 100vh;
 }
 
-.payment-complete p {
+.pp-payment-complete p {
     color: var(--text-color)
 }
 
 h2 {
     color: var(--text-color)
+}
+
+.pp-payment-complete button {
+    background-color: var(--button-background-color);
+    margin: 20px;
+    color: var(--button-text-color);
+    padding: 10px;
+
+    font-size: 16px;
+
+    border-radius: 1rem;
+    max-width: fit-content;
+
+
+    border: 1px solid var(--border-color);
+}
+
+
+.pp-payment-complete button:hover {
+    background-color: var(--button-hover-background-color)
+}
+
+button:hover {
+    background-color: var(--button-hover-background-color)
+}
+
+
+
+@media (max-width: 500px) {
+    .pp-pay-page {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px;
+        padding: 10px;
+    }
+
+    .pp-payment-section,
+    .pp-movie-info-section {
+        width: 100%;
+        margin: 0 20px;
+        align-items: center;
+    }
+
+    .pp-payment-section {
+        width: 100%;
+
+        border: none;
+    }
+
+    .pp-date-cvv-row {
+        flex-direction: column;
+
+    }
+
+    .pp-movie-item {
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        width: 100%;
+        box-sizing: border-box;
+        text-align: center;
+    }
+
+    .pp-movie-item img {
+        margin: 0 0 10px 0;
+    }
+
+ 
+    
+
+    .pp-pay-button {
+        width: 100%;
+        margin: 5px 0;
+    }
 }
