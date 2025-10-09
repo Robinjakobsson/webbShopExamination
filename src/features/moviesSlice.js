@@ -9,6 +9,7 @@ const initialState = {
         upcoming: [],
         kids: [],
         nowPlaying: [],
+        all: []
     },
     status: 'idle',
     error: null,
@@ -43,6 +44,16 @@ export const fetchAllMovies = createAsyncThunk("movies/fetchAllMovies", async ()
         upcoming: upcoming.results,
         kids: kids.results,
         nowPlaying: nowPlaying.results,
+        all: [
+            ...popular.results,
+            ...topRated.results,
+            ...upcoming.results,
+            ...kids.results,
+            ...nowPlaying.results
+        ].filter(
+            (movie, index, self) =>
+                index === self.findIndex((m) => m.id === movie.id)
+        )
     };
 })
     //Singular fetch method returns list of popular movies
