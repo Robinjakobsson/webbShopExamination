@@ -16,8 +16,9 @@ const WelcomePage = () => {
     return (
         <section className="welcomePage">
             <div className="welcomePageMovieRow">
+                
             {movies.popular?.slice(0, 4).map((movie) => (
-                <div key ={movie.id}>
+                <div key ={movie.id} className='welcomePageMovieCard'>
                     <Link to="/detail" state={{movie}}>
                     <img className="welcomePageImg" 
                     src={`https://image.tmdb.org/t/p/w400${movie.poster_path}`}/>

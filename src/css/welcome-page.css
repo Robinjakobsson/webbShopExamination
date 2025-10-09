@@ -1,4 +1,3 @@
-
 .welcomePage {
     display: flex;
     flex-direction: column;
@@ -28,15 +27,64 @@
     max-width: fit-content;
     margin-top: 1rem;
     padding: 0.5rem;
-      border: 1px solid var(--border-color);
+    border: 1px solid var(--border-color);
 
 }
+
 .welcomePageBtn:hover {
     cursor: pointer;
     background-color: var(--button-hover-background-color)
 }
 
-p{
- color: var(--text-color)
+p {
+    color: var(--text-color)
 }
 
+@media (max-width: 600px) {
+    .welcomePage {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        width: 100%;
+        min-height: 100vh;
+        align-items: center;
+    }
+
+    .welcomePageMovieRow {
+          position: relative;  
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+        white-space: nowrap;
+        width: 100%;
+
+    }
+
+    .welcomePageImg {
+        width: auto;
+        height: 350px;
+        scroll-snap-align: start;
+        flex-shrink: 0;
+        object-fit: cover;
+           border-radius: 0;
+    margin: 0;
+   
+
+    }
+.welcomePageMovieCard {
+flex: 0 0 auto;
+}
+
+  .welcomePageMovieRow::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: fit-content;
+    height: 100%;
+    pointer-events: none; 
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 50%, var(--background-color) 100%);
+  }
+
+}
