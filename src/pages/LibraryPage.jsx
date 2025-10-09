@@ -1,15 +1,23 @@
 import HorizontalListCard from '../components/HorizontalListCard'
 import '../css/library-page.css'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import HorizontalList from '../components/HorizontalList';
+import { useEffect } from 'react';
+import { fetchAllMovies } from '../features/moviesSlice';
 
 const LibraryPage = () => {
 const {movies: movies, status, error} = useSelector((state) => state.movies)
+const dispatch = useDispatch();
 
 
+    useEffect(()=> {
+        if (movies.popular.length < 1) {
+            dispatch(fetchAllMovies());
+        }
+    })
 
-  if (!movies) return <p>Loading movies...</p>;
-  if (status === 'failed') return <p>Error: {error}</p>;
+  if (!movies) return( <p>Loading movies...</p>);
+  if (status === 'failed') return( <p>Error: {error}</p>);
 
     return (
         <section className='librarySection'>
