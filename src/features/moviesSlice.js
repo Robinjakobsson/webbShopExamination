@@ -9,6 +9,7 @@ const initialState = {
         upcoming: [],
         kids: [],
         nowPlaying: [],
+        genres: [],
         all: []
     },
     status: 'idle',
@@ -27,9 +28,10 @@ export const fetchAllMovies = createAsyncThunk("movies/fetchAllMovies", async ()
         upcoming: `https://api.themoviedb.org/3/movie/upcoming?api_key=${APIKEY}&language=en-US&page=1`,
         kids: `https://api.themoviedb.org/3/discover/movie?api_key=${APIKEY}&with_genres=16,10751&language=&page=1`,
         nowPlaying: `https://api.themoviedb.org/3/movie/now_playing?api_key=${APIKEY}&language=en-US&page=1`,
+        genres: `https://api.themoviedb.org/3/genre/movie/list?api_key=${APIKEY}&language=en`
     };
             // making an array of the different genres and using Promise.all to fetch every endpoint
-    const [popular, topRated, upcoming, kids, nowPlaying] = await Promise.all(
+    const [popular, topRated, upcoming, kids, nowPlaying, genres] = await Promise.all(
         Object.values(endpoints).map((url) => fetch(url).then(response => {
             const data = response.json();
             console.log(data)
@@ -44,6 +46,7 @@ export const fetchAllMovies = createAsyncThunk("movies/fetchAllMovies", async ()
         upcoming: upcoming.results,
         kids: kids.results,
         nowPlaying: nowPlaying.results,
+        genres: genres.genres,
         all: [
             ...popular.results,
             ...topRated.results,
