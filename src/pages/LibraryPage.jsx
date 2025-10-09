@@ -7,6 +7,7 @@ import { fetchAllMovies } from '../features/moviesSlice';
 const LibraryPage = () => {
     const {movies: movies, status, error} = useSelector((state) => state.movies)
     const allMovies = movies.all;
+    const dispatch = useDispatch();
     const genres = movies.genres;
 
     const moviesByGenre = {};
@@ -17,9 +18,6 @@ const LibraryPage = () => {
         )
         moviesByGenre[genre.name] = genreMovies;
     })
-const {movies: movies, status, error} = useSelector((state) => state.movies)
-const dispatch = useDispatch();
-
 
     useEffect(()=> {
         if (movies.popular.length < 1) {
