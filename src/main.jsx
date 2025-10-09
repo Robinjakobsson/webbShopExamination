@@ -17,6 +17,8 @@ import GenreDetailPage from './pages/GenreDetailPage.jsx'
 import SupportPage from './pages/SupportPage.jsx'
 import FilterPage from './pages/FilterPage.jsx'
 import DiscoverPage from './pages/DiscoverPage.jsx'
+import NewMoviesPage from './pages/NewMoviesPage.jsx'
+
 
 const store = configureStore({
   reducer: {
@@ -39,7 +41,8 @@ const router = createHashRouter([
       {path: '/genre', Component: GenreDetailPage},
       {path: '/support', Component: SupportPage},
       {path: '/discover', Component: DiscoverPage},  
-      {path: '/filter', Component: FilterPage}  
+      {path: '/filter', Component: FilterPage},
+      {path: '/new', Component: NewMoviesPage},
     ]
   }
 ])

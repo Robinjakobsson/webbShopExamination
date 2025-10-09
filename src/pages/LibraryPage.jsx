@@ -34,7 +34,7 @@ const LibraryPage = () => {
             <HorizontalList movies={movies.topRated} text={'Top rated movies'} />
             <HorizontalList movies={movies.nowPlaying} text={'Currently in theatres'} />
             <HorizontalList movies={movies.kids} text={'Kids movies'} />
-            <HorizontalList movies={movies.upcoming} text={'Upcoming movies'} />
+        {/*  <HorizontalList movies={movies.upcoming} text={'Upcoming movies'} /> */}
             {Object.entries(moviesByGenre).map(([genreName, genreMovies]) => (
                 genreMovies.length > 0 && (
                     <HorizontalList key={genreName} movies={genreMovies} text={`${genreName} movies`}/>
