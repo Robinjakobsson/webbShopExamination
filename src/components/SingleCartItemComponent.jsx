@@ -17,7 +17,7 @@ const SingleCartItemComponent = ({item}) => {
                         <p>{item.movie.title}</p>
                         <article className='cartPageItemQuantity'>
                             <p className="cartPageItemQuantityP">{item.quantity}</p>
-                            <p>à {item.price} SEK</p>
+                            <p className="cartPageItemPiece">à {item.price} SEK</p>
                             <article className='cartPageBtnQuantityContainer'>
                                 <button 
                                     onClick={() => dispatcher(decreaseQuantity(item))} 
