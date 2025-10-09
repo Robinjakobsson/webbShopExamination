@@ -15,7 +15,10 @@ import { configureStore } from '@reduxjs/toolkit'
 import { Provider } from 'react-redux'
 import GenreDetailPage from './pages/GenreDetailPage.jsx'
 import SupportPage from './pages/SupportPage.jsx'
+import FilterPage from './pages/FilterPage.jsx'
 import DiscoverPage from './pages/DiscoverPage.jsx'
+import NewMoviesPage from './pages/NewMoviesPage.jsx'
+
 
 const store = configureStore({
   reducer: {
@@ -37,7 +40,9 @@ const router = createHashRouter([
       {path: '/pay', Component: PayPage},
       {path: '/genre', Component: GenreDetailPage},
       {path: '/support', Component: SupportPage},
-      {path: '/discover', Component: DiscoverPage}  
+      {path: '/discover', Component: DiscoverPage},  
+      {path: '/filter', Component: FilterPage},
+      {path: '/new', Component: NewMoviesPage},
     ]
   }
 ])
