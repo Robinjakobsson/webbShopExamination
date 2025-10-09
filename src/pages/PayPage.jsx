@@ -24,7 +24,7 @@ const PayPage = () => {
     if (!paid) {
         return (
             <div className="pp-pay-page">
-              
+
                 <section className="pp-payment-section">
                     <form className='pp-pay-form'
 
@@ -75,7 +75,9 @@ const PayPage = () => {
                                 src={`${imgUrl}${item.movie.poster_path}`}
                                 alt="no image" />
                             <div className="pp-movie-texts">
-                                <h2>{item.movie.title}</h2>
+                                <h2>{item.movie.title.length > 20
+                                    ? item.movie.title.slice(0, 20) + "..."
+                                    : item.movie.title}</h2>
                                 <p>Price: {item.price * item.quantity} kr.</p>
                             </div>
                         </div>
