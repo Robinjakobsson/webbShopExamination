@@ -38,8 +38,7 @@ const router = createHashRouter([
       {path: '/pay', Component: PayPage},
       {path: '/genre', Component: GenreDetailPage},
       {path: '/support', Component: SupportPage},
-      {path: '/discover', Component: DiscoverPage}  
-      {path: '/support', Component: SupportPage},
+      {path: '/discover', Component: DiscoverPage},  
       {path: '/filter', Component: FilterPage}  
     ]
   }
