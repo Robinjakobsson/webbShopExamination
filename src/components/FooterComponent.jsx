@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebook, faInstagram, faSquareGithub, faXTwitter } from "@fortawesome/free-brands-svg-icons";
 import { Link } from "react-router";
 
+
 const FooterComponent = () => {
 
     return(
@@ -24,7 +25,6 @@ const FooterComponent = () => {
                 <a href="https://github.com/Robinjakobsson/webbShopExamination/">
                 <FontAwesomeIcon icon={faSquareGithub}/>
                 </a>
-
             </span>
         </footer>
     )
