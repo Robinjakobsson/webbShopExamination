@@ -26,7 +26,7 @@ const DetailPageBottomComponent = ({ movie }) => {
    <article className='detailPageBottomTopPart'>
         <button onClick={btnClicked} className='detailPageBtnAddMovieToCart'>Add to cart</button>
         <button onClick={btnClicked2} className='detailPageBtnAddMovieToCart' disabled = {!cartItem || cartItem.quantity <= 0}>Decrease</button>
-        <p>Amount: {cartItem.quantity}</p>
+        <p>Qty: {cartItem.quantity}</p>
     </article>
 
     <article className='detailPageBottomBottomPart'>
