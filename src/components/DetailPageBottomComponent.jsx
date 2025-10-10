@@ -6,13 +6,23 @@ const DetailPageBottomComponent = ({ movie }) => {
   const dispatcher = useDispatch();
   const userCart = useSelector((state) => state.cart.cartItems);
   const cartItem = userCart.find((item) => item.movie.id === movie.id); 
-  console.log(cartItem)
+
+  const languages = useSelector((state) => state.movies.movies.languages);
+  const languageToDisplay = languages.find((language) => language.iso_639_1 === movie.original_language)
+  
+  const [isAdded, setIsAdded] = useState(false);
+
+
   const btnClicked = () => {
     if (cartItem) {
       dispatcher(increaseQuantity(cartItem))
     } else {
       dispatcher(addItem(movie));
     }
+    setIsAdded(true);
+    setTimeout(() => {
+        setIsAdded(false);
+    }, 2000)
   }
   
   const btnClicked2 = () => {
@@ -25,15 +35,26 @@ const DetailPageBottomComponent = ({ movie }) => {
     <>
    <article className='detailPageBottomTopPart'>
         <button onClick={btnClicked} className='detailPageBtnAddMovieToCart'>Add to cart</button>
-        <button onClick={btnClicked2} className='detailPageBtnAddMovieToCart' disabled = {!cartItem || cartItem.quantity <= 0}>Decrease</button>
-        <p>Qty: {cartItem.quantity}</p>
+        {/* <button onClick={btnClicked2} className='detailPageBtnAddMovieToCart' disabled = {!cartItem || cartItem.quantity <= 0}>Decrease</button> */}
+        {/* {cartItem !== undefined &&
+          <p>Qty: {cartItem.quantity}</p>
+        } */}
+        {/* {cartItem === undefined &&
+          <p>Qty: 0</p>
+        } */}
+
+        {isAdded &&
+          <p>You added this movie to your cart</p>
+        }
     </article>
 
     <article className='detailPageBottomBottomPart'>
-        <p className='detailPageMovieOverview'>{movie.overview}</p>
+        <p className='detailPageMovieOverview'>
+          {movie.overview.endsWith(".") ? movie.overview : movie.overview + "."}
+        </p>
         <article className='detailPageLanguageInfo'>
-            <p><strong>Language</strong></p>
-            <p></p>
+            <p><strong>Languages</strong></p>
+            <p>{languageToDisplay.english_name}</p>
         </article>
     </article>
     </>
