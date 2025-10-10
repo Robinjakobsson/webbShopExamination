@@ -1,18 +1,23 @@
 import { useDispatch } from "react-redux";
 import { decreaseQuantity, deleteItem, increaseQuantity } from '../features/cartSlice';
 import binIcon from '../assets/bin-icon.png';
+import { Link } from "react-router";
 
 
 
 const SingleCartItemComponent = ({item}) => {
     const dispatcher = useDispatch();
     const imgUrl = "https://image.tmdb.org/t/p/w92"
+    console.log("Item: ", item)
 
     return(
         <>
             <article className='cartPageSingleCartItem'>
                 <article className='cartPageCartItemImgAndQuantity'>
-                    <img className='cartPageMovieImg' src={`${imgUrl}${item.movie.poster_path}`}/>
+                    <Link to="/detail" state={{movie: item.movie}}>
+                        <img className='cartPageMovieImg' src={`${imgUrl}${item.movie.poster_path}`}/>
+                    </Link>
+                    
                     <article className='cartPageItemInfo'>
                         <p>{item.movie.title}</p>
                         <article className='cartPageItemQuantity'>

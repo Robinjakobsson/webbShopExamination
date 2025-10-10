@@ -36,6 +36,13 @@
     padding: 0;
 }
 
+.detailPageBottomTopPart {
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+    align-items: center;
+}
+
 .detailPageBottomPart {
     display: flex;
     flex-direction: column;
