@@ -28,7 +28,9 @@ const CartPage = () => {
                             <p>Total: {totalPrice} SEK</p>
                         </section>
 
-                        <Link to ="/pay" className='cartPageBtnPay'>CONTINUE TO PAYMENT</Link>
+                        <Link to ="/pay">
+                        <button className='cartPageBtnPay'>CONTINUE TO PAYMENT</button>
+                        </Link>
                     </section>
                     
                 )}

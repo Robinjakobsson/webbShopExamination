@@ -8,6 +8,7 @@ const MovieDetailPage = () => {
     const location = useLocation();
     const {movie} = location.state;
     const userCart = useSelector((state) => state.cart.cartItems)
+    const price = Number(String(movie.id).slice(0, 3)); 
 
     const imgUrl = "https://image.tmdb.org/t/p/w200"
     const releaseDate = movie.release_date;
@@ -23,7 +24,8 @@ const MovieDetailPage = () => {
                <DetailPageTopComponent 
                movie={movie} 
                releaseYear={releaseYear} 
-               imgUrl={imgUrl} imgAltDefaultText={imgAltDefaultText} />
+               imgUrl={imgUrl} imgAltDefaultText={imgAltDefaultText} 
+               price = {price}/>
                 
             </section>
 
