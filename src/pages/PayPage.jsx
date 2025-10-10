@@ -29,24 +29,25 @@ const PayPage = () => {
         return (
             <div className="pp-pay-page">
                 <section className="pp-payment-section">
-<CreditCardComponent totalPrice={totalPrice} handleSubmit={handleSubmit} />
-   </section>
-                    <section className="pp-movie-info-section">
-                        {cartItems.map((item) => (
-                            <div key={item.movie.id} className="pp-movie-item">
-                                <img
-                                    src={`${imgUrl}${item.movie.poster_path}`}
-                                    alt="no image" />
-                                <div className="pp-movie-texts">
-                                    <h2>{item.movie.title.length > 20
-                                        ? item.movie.title.slice(0, 20) + "..."
-                                        : item.movie.title}</h2>
-                                    <p>Price: {item.price * item.quantity} kr.</p>
-                                </div>
+                    <CreditCardComponent totalPrice={totalPrice} handleSubmit={handleSubmit} />
+                </section>
+                
+                <section className="pp-movie-info-section">
+                    {cartItems.map((item) => (
+                        <div key={item.movie.id} className="pp-movie-item">
+                            <img
+                                src={`${imgUrl}${item.movie.poster_path}`}
+                                alt="no image" />
+                            <div className="pp-movie-texts">
+                                <h2>{item.movie.title.length > 20
+                                    ? item.movie.title.slice(0, 20) + "..."
+                                    : item.movie.title}</h2>
+                                <p>Price: {item.price * item.quantity} kr.</p>
                             </div>
-                        ))}
+                        </div>
+                    ))}
 
-                 
+
                 </section>
             </div>
         )
