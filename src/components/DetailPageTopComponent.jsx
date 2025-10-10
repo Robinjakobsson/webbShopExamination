@@ -1,9 +1,9 @@
-const DetailPageTopComponent = ({movie, releaseYear, imgUrl, imgAltDefaultText}) => {
+const DetailPageTopComponent = ({movie, releaseYear, imgUrl, imgAltDefaultText, price}) => {
     return (
      <article className='detailPageTopBottomPart'>
                     <img className='detailPageMovieImg' src={`${imgUrl}${movie.poster_path}`} alt={`${imgAltDefaultText}${movie.title}`} />
                     <article className='detailPageTopInfo'>
-                        <p>Price: 199kr</p>
+                        <p>Price: {price}kr</p>
                         <h2>{movie.title}</h2>
                         <article className='detailPageSpecs'>
                             <p>{releaseYear}</p>

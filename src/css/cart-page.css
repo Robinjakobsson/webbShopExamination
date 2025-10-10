@@ -73,6 +73,10 @@
     text-align: center;
 }
 
+.cartPageItemPiece {
+    font-size: 0.7rem;
+}
+
 .cartPageBtnQuantityContainer {
     display: flex;
     flex-direction: row;
