@@ -13,6 +13,29 @@ export default function CreditCardComponent({ totalPrice, handleSubmit }) {
 
         setCardNumber(formattedValue);
     }
+
+const [cvv, setCvv] = React.useState('');
+ function checkCvv(e) {
+        let value = e.target.value.replace(/\D/g, ''); // Remove non-digit characters
+        if (value.length > 3) {
+            value = value.slice(0, 3); // Limit to 16 digits
+        }
+        setCvv(value);
+    }
+
+const [date, setDate] = React.useState('');
+ function checkDate(e) {
+        let value = e.target.value.replace(/\D/g, ''); // Remove non-digit characters
+        if (value.length > 4) {
+            value = value.slice(0, 4); // Limit to 16 digits
+        }
+        if (value.length > 2) {
+            value = value.slice(0, 2) + '/' + value.slice(2);
+        }
+
+        setDate(value);
+    }
+
     return (
 
         <form className='pp-pay-form'
@@ -34,12 +57,16 @@ export default function CreditCardComponent({ totalPrice, handleSubmit }) {
             <div className="pp-date-cvv-row">
                 <label>
                     <span>Date:</span>
-                    <input type="text" placeholder='MM/YY' required />
+                    <input type="text" placeholder='MM/YY' required 
+                    value={date}
+                    onChange={checkDate}/>
                 </label>
 
                 <label>
                     <span>Security code:</span>
-                    <input type="text" placeholder='CVV' required />
+                    <input type="text" placeholder='CVV' required 
+                      value={cvv}
+                    onChange={checkCvv}/>
                 </label>
             </div>
 
