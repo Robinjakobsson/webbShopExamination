@@ -28,6 +28,7 @@
     margin-top: 1rem;
     padding: 0.5rem;
     border: 1px solid var(--border-color);
+    transition: .2s ease-in-out;
 
 }
 
@@ -51,7 +52,7 @@ p {
     }
 
     .welcomePageMovieRow {
-          position: relative;  
+        position: relative;
         flex-wrap: nowrap;
         overflow-x: auto;
         overflow-y: hidden;
@@ -67,24 +68,25 @@ p {
         scroll-snap-align: start;
         flex-shrink: 0;
         object-fit: cover;
-           border-radius: 0;
-    margin: 0;
-   
+        border-radius: 0;
+        margin: 0;
+
 
     }
-.welcomePageMovieCard {
-flex: 0 0 auto;
-}
 
-  .welcomePageMovieRow::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: fit-content;
-    height: 100%;
-    pointer-events: none; 
-    background: linear-gradient(to bottom, rgba(0,0,0,0) 50%, var(--background-color) 100%);
-  }
+    .welcomePageMovieCard {
+        flex: 0 0 auto;
+    }
+
+    .welcomePageMovieRow::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: fit-content;
+        height: 100%;
+        pointer-events: none;
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, var(--background-color) 100%);
+    }
 
 }
