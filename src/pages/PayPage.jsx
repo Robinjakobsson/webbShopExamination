@@ -2,6 +2,7 @@ import { useState } from 'react';
 import '../css/pay-page.css'
 import { useSelector, useDispatch } from 'react-redux';
 import { cleanCart } from '../features/cartSlice';
+import CreditCardComponent from '../components/CreditCardComponent';
 
 
 const PayPage = () => {
@@ -24,53 +25,12 @@ const PayPage = () => {
         dispatch(cleanCart());
     }
 
-        if (!paid) {
-            return (
-                <div className="pp-pay-page">
-
-                    <section className="pp-payment-section">
-                        <form className='pp-pay-form'
-
-                            onSubmit={handleSubmit}
-
-                        >
-                            <label>
-                                <span>Card number:</span>
-                                <input type="text" placeholder="1234 5678 9012 3456" required />
-
-                            </label>
-                            {/* hit kan man lägga till ikoner senare
-<div className='card-icons'>
-    </div>
-*/}
-
-                            <div className="pp-date-cvv-row">
-                                <label>
-                                    <span>Date:</span>
-                                    <input type="text" placeholder='MM/YY' required />
-                                </label>
-
-                                <label>
-                                    <span>Security code:</span>
-                                    <input type="text" placeholder='CVV' required />
-                                </label>
-                            </div>
-
-                            <label>
-                                <span>Card owner:</span>
-                                <input type="text" placeholder='Name as on the card' required />
-                            </label>
-
-                            <div className="pp-remember-toggle">
-                                <input type="checkbox" />
-                                <span> Remember this card</span>
-
-                            </div>
-                            <button type="submit" className='pp-pay-button'>Pay {totalPrice}kr.</button>
-
-                        </form>
-                    </section>
-
+    if (!paid) {
+        return (
+            <div className="pp-pay-page">
+                <section className="pp-payment-section">
+<CreditCardComponent totalPrice={totalPrice} handleSubmit={handleSubmit} />
+   </section>
                     <section className="pp-movie-info-section">
                         {cartItems.map((item) => (
                             <div key={item.movie.id} className="pp-movie-item">
@@ -86,18 +46,19 @@ const PayPage = () => {
                             </div>
                         ))}
 
-                    </section>
-                </div>
-            )
-        } else {
-            return (
-                <div className="pp-payment-complete">
-                    <h1>Thank you for your purchase!</h1>
-                    <p>Your order number is {Math.floor(Math.random() * 1000 + 1)}.</p>
-                    <button onClick={backToLibrary}>Back to Library</button>
-                </div>
-            )
-        }
+                 
+                </section>
+            </div>
+        )
+    } else {
+        return (
+            <div className="pp-payment-complete">
+                <h1>Thank you for your purchase!</h1>
+                <p>Your order number is {Math.floor(Math.random() * 1000 + 1)}.</p>
+                <button onClick={backToLibrary}>Back to Library</button>
+            </div>
+        )
     }
+}
 
-    export default PayPage
+export default PayPage
