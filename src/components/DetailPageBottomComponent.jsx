@@ -4,8 +4,9 @@ import { addItem, decreaseQuantity, increaseQuantity } from "../features/cartSli
 
 const DetailPageBottomComponent = ({ movie }) => {
   const dispatcher = useDispatch();
-  const cartItem = useSelector((state) => state.cart.find((item) => item.movie.id === movie.id));
-
+  const userCart = useSelector((state) => state.cart.cartItems);
+  const cartItem = userCart.find((item) => item.movie.id === movie.id); 
+  console.log(cartItem)
   const btnClicked = () => {
     if (cartItem) {
       dispatcher(increaseQuantity(cartItem))
@@ -13,7 +14,7 @@ const DetailPageBottomComponent = ({ movie }) => {
       dispatcher(addItem(movie));
     }
   }
-
+  
   const btnClicked2 = () => {
     if (cartItem && cartItem.quantity > 0){
       dispatcher(decreaseQuantity(cartItem));
@@ -25,7 +26,7 @@ const DetailPageBottomComponent = ({ movie }) => {
    <article className='detailPageBottomTopPart'>
         <button onClick={btnClicked} className='detailPageBtnAddMovieToCart'>Add to cart</button>
         <button onClick={btnClicked2} className='detailPageBtnAddMovieToCart' disabled = {!cartItem || cartItem.quantity <= 0}>Decrease</button>
-        <p>Amount: {count}</p>
+        <p>Qty: {cartItem.quantity}</p>
     </article>
 
     <article className='detailPageBottomBottomPart'>
