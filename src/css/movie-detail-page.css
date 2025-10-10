@@ -31,6 +31,18 @@
     color: var(--text-color);
 }
 
+.detailPageTopInfo h2 {
+    margin: 0;
+    padding: 0;
+}
+
+.detailPageBottomTopPart {
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+    align-items: center;
+}
+
 .detailPageBottomPart {
     display: flex;
     flex-direction: column;
@@ -53,6 +65,7 @@
     display: flex;
     flex-direction: row;
     gap: 3rem;
+    margin-top: 2rem;
 }
 
 .detailPageBtnAddMovieToCart {
