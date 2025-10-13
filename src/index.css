@@ -21,8 +21,6 @@ button:active {
   transform: scale(0.95);
 }
 
-
-
 .darkModeContainer {
   display: flex;
   align-items: center;
