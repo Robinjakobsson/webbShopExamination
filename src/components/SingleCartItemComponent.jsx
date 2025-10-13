@@ -1,7 +1,8 @@
 import { useDispatch } from "react-redux";
 import { decreaseQuantity, deleteItem, increaseQuantity } from '../features/cartSlice';
-import binIcon from '../assets/bin-icon.png';
+import {faTrash} from '@fortawesome/free-solid-svg-icons';
 import { Link } from "react-router";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
 
@@ -40,7 +41,7 @@ const SingleCartItemComponent = ({item}) => {
                 <article className='cartPageDeleteBtnAndPriceContainer'>
                     <p> {item.price * item.quantity} kr</p>
                     <button onClick={() => dispatcher(deleteItem(item))} className='cartPageBtnDeleteCartItem'>
-                        <img src={binIcon} style={{height: "1.5rem", width: "auto"}}></img>
+                        <FontAwesomeIcon icon={faTrash} className="trashIcon" />
                     </button>
                 </article>
             </article>

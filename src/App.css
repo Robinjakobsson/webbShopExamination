@@ -14,7 +14,7 @@
 }
 
 .mainHeader a {
-  color: #bbb;
+  color: inherit;
   text-decoration: none;
   display: flex;
   flex-direction: column;
@@ -23,7 +23,7 @@
   transition: transform 0.3s ease, color 0.3s ease;
 }
 .mainHeader a:hover {
-  color: #fff;
+  color: var(--button-hover-background-color);
   transform: scale(1.10);
 }
 
