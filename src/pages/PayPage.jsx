@@ -6,6 +6,7 @@ import CreditCardComponent from '../components/CreditCardComponent';
 
 
 const PayPage = () => {
+    
     const dispatch = useDispatch();
     const cartItems = useSelector((state) => state.cart.cartItems);
     console.log(cartItems)
