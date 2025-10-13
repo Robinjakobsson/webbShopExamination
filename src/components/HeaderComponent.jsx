@@ -44,16 +44,20 @@ const HeaderComponent = () => {
                     <FontAwesomeIcon icon={faCcDiscover} className='icon' />
                     <p>Discover</p>
                 </Link>
-                <section className='headerCartContainer'>
+                </section>
+
+                <section className='rightSection'>
+                    <section className='headerCartContainer'>
                     <Link to="/cart" title='Your cart' className='cartLink'>
-                        <FontAwesomeIcon icon={faCartShopping} />
+                        <FontAwesomeIcon icon={faCartShopping} className='icon' />
                     </Link>
                     {userCart.length > 0 &&
                         <span className='headerCartItemDisplayBubble'>{displayQuantity}</span>
                     }
-                </section>
+                    </section>
+               
               
-            </section>
+           
             <DarkModeToggle />
             </section>
         </header>

@@ -35,14 +35,10 @@
   font-size: 1.5rem;
 }
 
-
-
-
 /*Right Links*/
 .rightSection {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
   margin-right: 1rem;
 
 }
@@ -55,11 +51,15 @@
   align-items: center;
   gap: 2rem;
   margin-left: 10rem;
-  
 
 }
 
 .headerCartContainer {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-right: 1rem;
+  
   position: relative;
   display: inline-block;
   width: 2rem;
