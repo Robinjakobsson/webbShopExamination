@@ -18,7 +18,7 @@ import SupportPage from './pages/SupportPage.jsx'
 import FilterPage from './pages/FilterPage.jsx'
 import DiscoverPage from './pages/DiscoverPage.jsx'
 import NewMoviesPage from './pages/NewMoviesPage.jsx'
-
+import ErrorPage from './pages/ErrorPage.jsx'
 
 const store = configureStore({
   reducer: {
@@ -32,6 +32,7 @@ const router = createHashRouter([
   {
     path: '/',
     Component: App,
+    errorElement: <ErrorPage />,
     children: [
       {index: true, Component: WelcomePage},
       {path: '/library', Component: LibraryPage},

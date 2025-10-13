@@ -1,7 +1,18 @@
 import React from 'react'
+import { useState } from 'react'
 
 export default function CreditCardComponent({ totalPrice, handleSubmit }) {
 
+
+const [crash, setCrash] = useState(false);
+
+if (crash) {
+  throw new Error("Имитация ошибки!");
+}
+
+
+
+    
     const [cardNumber, setCardNumber] = React.useState('');
 
     function checkCardNumber(e) {
@@ -81,7 +92,7 @@ const [date, setDate] = React.useState('');
 
             </div>
             <button type="submit" className='pp-pay-button'>Pay {totalPrice}kr.</button>
-
+         <button onClick={() => setCrash(true)}>💥 Pay but unsuccessfully</button>
         </form>
 
     )
