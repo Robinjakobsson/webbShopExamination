@@ -1,3 +1,4 @@
+
 .cartPage {
     display: flex;
     flex-direction: column;
@@ -94,9 +95,38 @@
 }
 
 .cartPageBtnDeleteCartItem {
-    background-color: transparent;
-    border: 0;
+    border: none;         
+    background: transparent; 
+    padding: 0;           
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
 }
+
+.cartPageBtnDeleteCartItem:hover {
+    background: transparent; 
+    cursor: pointer;
+}
+.cartPageBtnDeleteCartItem:focus {
+    outline: none;
+}
+
+.trashIcon {
+    font-size: 20px;
+    transition: .2s;
+}
+
+.trashIcon:hover {
+    background-color: transparent;
+    transform: scale(1.10);   
+}
+.trashIcon:active {
+    transform: scale(0.95);
+}
+
+
 
 .cartPagePay {
     display: flex;
