@@ -37,10 +37,17 @@
 
 /*Right Links*/
 .rightSection {
+  border-radius: 8px;
+  padding: 10px;
+  background-color: var(--text-color);
   display: flex;
   align-items: center;
   margin-right: 1rem;
 
+}
+
+.rightSection svg {
+  color: var(--background-color)
 }
 /*Center Links*/
 
@@ -50,7 +57,7 @@
   flex-grow: 1;
   align-items: center;
   gap: 2rem;
-  margin-left: 10rem;
+  margin-left: 12rem;
 
 }
 

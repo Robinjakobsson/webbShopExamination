@@ -39,6 +39,7 @@ button:active {
 }
 
 :root {
+--inverted-color: #212121;
 --background-color: #f5f5f5;          
 --text-color: #000000;                 
 --button-background-color: #e0e0e0; 
