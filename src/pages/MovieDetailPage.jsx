@@ -11,6 +11,7 @@ const MovieDetailPage = () => {
     const price = Number(String(movie.id).slice(0, 3)); 
 
     const imgUrl = "https://image.tmdb.org/t/p/w200"
+    const backdropUrl = "https://image.tmdb.org/t/p/w500"
     const releaseDate = movie.release_date;
     const releaseYear = releaseDate.substring(0,4);
     const imgAltDefaultText = "Image of movie "
@@ -20,13 +21,17 @@ const MovieDetailPage = () => {
 
     return (
         <section className='detailPage'>
+
+            <article className='detailPageBackdropWrapper'>
+                <img className='detailPageBackdropImg' src={backdropUrl+movie.backdrop_path}></img>
+            </article>
+            
             <section className='detailPageTopPart'>
                <DetailPageTopComponent 
                movie={movie} 
                releaseYear={releaseYear} 
                imgUrl={imgUrl} imgAltDefaultText={imgAltDefaultText} 
                price = {price}/>
-                
             </section>
 
             <section className='detailPageBottomPart'>
