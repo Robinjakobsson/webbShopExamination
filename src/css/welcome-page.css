@@ -59,7 +59,7 @@ p {
         scroll-snap-type: x mandatory;
         white-space: nowrap;
         width: 100%;
-
+        margin-bottom: 2rem;
     }
 
     .welcomePageImg {
@@ -89,4 +89,22 @@ p {
         background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, var(--background-color) 100%);
     }
 
+}
+
+.particles-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.welcomePageContent {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
