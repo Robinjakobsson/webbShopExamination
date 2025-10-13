@@ -32,3 +32,20 @@
   justify-items: center; 
 }
 
+.filterPageGenreButtons {
+  display: grid;
+  grid-template-columns: 10rem 10rem 10rem 10rem 10rem 10rem ;
+  justify-content: center;
+  gap: 0.4rem;
+  margin-bottom: 3rem;
+}
+
+.filterPageGenreButtons button {
+  padding: 0.3rem;
+}
+
+.filterPagePageButtons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
