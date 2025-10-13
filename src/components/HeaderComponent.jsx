@@ -12,28 +12,37 @@ const HeaderComponent = () => {
 
     return (
         <header className="mainHeader">
-            <section className='middle'>
+            <section className='centerSection'>
                 <Link to="/" title='Home'>
-                    <FontAwesomeIcon icon={faHome} />
+                    <FontAwesomeIcon icon={faHome} className='icon'/>
+                    <p>Home</p>
                 </Link>
                 <Link to="/library" title='Go to our library'>
-                    <FontAwesomeIcon icon={faBookOpen} />
+                    <FontAwesomeIcon icon={faBookOpen} className='icon'/>
+                    <p>Library</p>
+                    
                 </Link>
                 <Link to="/filter" className='searchLink'>
-                    <FontAwesomeIcon icon={faMagnifyingGlass} />
+                    <FontAwesomeIcon icon={faMagnifyingGlass} className='icon'  />
+                    <p>Search</p>
                 </Link>
                   <Link to="/new" title='New movies'>
-                    <FontAwesomeIcon icon={faFilm} />
+                    <FontAwesomeIcon icon={faFilm} className='icon' />
+                    <p>New</p>
                 </Link>
                 <Link to="/discover" title='Discover new films'>
-                    <FontAwesomeIcon icon={faCcDiscover} />
+                    <FontAwesomeIcon icon={faCcDiscover} className='icon' />
+                    <p>Discover</p>
                 </Link>
+                </section>
+
+
+                <section className='rightSection'>
                 <Link to="/cart" title='Your cart' className='cartLink'>
-                    <FontAwesomeIcon icon={faCartShopping} />
+                    <FontAwesomeIcon icon={faCartShopping} className='icon'/>
                 </Link>
-              
-            </section>
             <DarkModeToggle />
+            </section>
         </header>
     )
 }
