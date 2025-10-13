@@ -7,8 +7,18 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { faCcDiscover } from '@fortawesome/free-brands-svg-icons';
 import DarkModeToggle from './DarkModeToggle';
 import { faFilm } from "@fortawesome/free-solid-svg-icons";
+import { useSelector } from 'react-redux';
+import { useEffect, useState } from 'react';
 
 const HeaderComponent = () => {
+
+    const userCart = useSelector((state) => state.cart.cartItems);
+    const [displayQuantity, setDisplayQuantity] = useState(0);
+
+    useEffect(() => {
+        const total = userCart.reduce((sum, item) => sum + item.quantity, 0);
+        setDisplayQuantity(total);
+    }, [userCart]);
 
     return (
         <header className="mainHeader">
@@ -34,13 +44,16 @@ const HeaderComponent = () => {
                     <FontAwesomeIcon icon={faCcDiscover} className='icon' />
                     <p>Discover</p>
                 </Link>
+                <section className='headerCartContainer'>
+                    <Link to="/cart" title='Your cart' className='cartLink'>
+                        <FontAwesomeIcon icon={faCartShopping} />
+                    </Link>
+                    {userCart.length > 0 &&
+                        <span className='headerCartItemDisplayBubble'>{displayQuantity}</span>
+                    }
                 </section>
-
-
-                <section className='rightSection'>
-                <Link to="/cart" title='Your cart' className='cartLink'>
-                    <FontAwesomeIcon icon={faCartShopping} className='icon'/>
-                </Link>
+              
+            </section>
             <DarkModeToggle />
             </section>
         </header>
