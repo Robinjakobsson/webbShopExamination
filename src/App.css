@@ -44,6 +44,28 @@
 
 }
 
+.headerCartContainer {
+  position: relative;
+  display: inline-block;
+  width: 2rem;
+}
+
+.headerCartItemDisplayBubble {
+  position: absolute; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: -6px;
+  right: -8px;
+  width: 19px;
+  height: 19px;
+  background-color: rgb(238, 139, 41);
+  color: white;
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: bold;
+}
+
 /*FOOTER*/
 
 .mainFooter {
