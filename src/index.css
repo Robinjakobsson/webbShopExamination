@@ -35,28 +35,26 @@ button:hover {
 
 }
 
-
-
 :root {
-  --background-color: rgb(254, 238, 221);
-  --text-color: black;
-  --button-background-color: #abc9e9;
-  --button-text-color: white;
-  --border-color: rgb(106, 106, 106);
-  --button-hover-background-color:  #8baac9;
-  --link-color: #8baac9;
-  --gradient-color: rgb(225, 208, 190);
+--background-color: #f5f5f5;          
+--text-color: #000000;                 
+--button-background-color: #e0e0e0; 
+--button-text-color: #000000;         
+--border-color: #cccccc;             
+--button-hover-background-color: #d5d5d5;
+--link-color: #151414;                
+--gradient-color: #ffffff;  
 }
 
 body[mode='dark'] {
-  --background-color: #212121;
-  --text-color: white;
-  --button-background-color: #2d3136;
-  --button-text-color: white;
-  --border-color: rgb(106, 106, 106);
-  --button-hover-background-color:  #8baac9;
-  --link-color: #8baac9;
-  --gradient-color: #151414;
+  --background-color: #121212;           
+--text-color: #e0e0e0;                 
+--button-background-color: #1f1f1f;    
+--button-text-color: #ffffff;          
+--border-color: #333333;               
+--button-hover-background-color: #272727; 
+--link-color: #82aaff;                 
+--gradient-color: #1a1a1a; 
 }
 
 body {
