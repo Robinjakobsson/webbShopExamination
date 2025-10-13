@@ -45,6 +45,7 @@ const HeaderComponent = () => {
                     <p>Discover</p>
                 </Link>
                 </section>
+                
 
                 <section className='rightSection'>
                     <section className='headerCartContainer'>
