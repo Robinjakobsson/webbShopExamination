@@ -6,12 +6,6 @@ import { fetchAllMovies } from '../features/moviesSlice';
 import Particles from '../components/BackgroundParticles';
 
 const WelcomePage = () => {
-
-    const dispatch = useDispatch();
-
-    useEffect (() => {
-        dispatch(fetchAllMovies())
-    }, [dispatch])
         
     return (
         <section className="welcomePage">
