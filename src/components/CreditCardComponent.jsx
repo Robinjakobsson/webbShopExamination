@@ -6,10 +6,13 @@ import { faCcVisa } from '@fortawesome/free-brands-svg-icons';
 
 export default function CreditCardComponent({ totalPrice, handleSubmit }) {
 
+
+
+    
     const [crash, setCrash] = useState(false);
 
     if (crash) {
-        throw new Error("Имитация ошибки!");
+        throw new Error("!");
     }
 
     const [cardNumber, setCardNumber] = React.useState('');
@@ -28,17 +31,20 @@ export default function CreditCardComponent({ totalPrice, handleSubmit }) {
     function checkCvv(e) {
         let value = e.target.value.replace(/\D/g, ''); // Remove non-digit characters
         if (value.length > 3) {
-            value = value.slice(0, 3); // Limit to 16 digits
+            value = value.slice(0, 3); // Limit to 3 digits
         }
         setCvv(value);
     }
+
+
+
 
     const [date, setDate] = React.useState('');
 
     function checkDate(e) {
         let value = e.target.value.replace(/\D/g, ''); // Remove non-digit characters
         if (value.length > 4) {
-            value = value.slice(0, 4); // Limit to 16 digits
+            value = value.slice(0, 4); // Limit to 4 digits
         }
         if (value.length > 2) {
             value = value.slice(0, 2) + '/' + value.slice(2);
