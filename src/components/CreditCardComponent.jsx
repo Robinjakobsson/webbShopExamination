@@ -1,5 +1,8 @@
 import React from 'react'
 import { useState } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCcMastercard } from '@fortawesome/free-brands-svg-icons';
+import { faCcVisa } from '@fortawesome/free-brands-svg-icons';
 
 export default function CreditCardComponent({ totalPrice, handleSubmit }) {
 
@@ -91,6 +94,11 @@ export default function CreditCardComponent({ totalPrice, handleSubmit }) {
                     onChange={checkCardNumber}
                 />
             </label>
+
+            <article className='payPageCardLogos'>
+                <FontAwesomeIcon icon={faCcMastercard} className='cardLogos'/>
+                <FontAwesomeIcon icon={faCcVisa} className='cardLogos'/>
+            </article>
 
 
             <div className="pp-date-cvv-row">
