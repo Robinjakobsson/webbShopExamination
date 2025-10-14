@@ -118,7 +118,7 @@ const FilterPage = () => {
           <hr className="divider" />
         </section>
 
-        <FilterPageGenreButtonsComponent genreButtonPressed={genreButtonPressed}/>
+        <FilterPageGenreButtonsComponent genreButtonPressed={genreButtonPressed} selectedGenre={selectedGenre}/>
 
         <section className="movieGrid">
           {loading ? (
