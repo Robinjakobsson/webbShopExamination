@@ -3,7 +3,7 @@ import { decreaseQuantity, deleteItem, increaseQuantity } from '../features/cart
 import {faTrash} from '@fortawesome/free-solid-svg-icons';
 import { Link } from "react-router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
+import comingSoon from '../assets/comingSoon.jpg'
 
 
 const SingleCartItemComponent = ({item}) => {
@@ -11,12 +11,15 @@ const SingleCartItemComponent = ({item}) => {
     const imgUrl = "https://image.tmdb.org/t/p/w92"
     console.log("Item: ", item)
 
+           let imgPath = item.movie.poster_path ? `${imgUrl}${item.movie.poster_path}` : comingSoon
+
+    
     return(
         <>
             <article className='cartPageSingleCartItem'>
                 <article className='cartPageCartItemImgAndQuantity'>
                     <Link to="/detail" state={{movie: item.movie}}>
-                        <img className='cartPageMovieImg' src={`${imgUrl}${item.movie.poster_path}`}/>
+                        <img className='cartPageMovieImg' src={imgPath}/>
                     </Link>
                     
                     <article className='cartPageItemInfo'>

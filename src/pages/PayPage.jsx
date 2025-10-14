@@ -3,10 +3,10 @@ import '../css/pay-page.css'
 import { useSelector, useDispatch } from 'react-redux';
 import { cleanCart } from '../features/cartSlice';
 import CreditCardComponent from '../components/CreditCardComponent';
-
+import comingSoon from '../assets/comingSoon.jpg'
 
 const PayPage = () => {
-    
+
     const dispatch = useDispatch();
     const cartItems = useSelector((state) => state.cart.cartItems);
     console.log(cartItems)
@@ -26,18 +26,25 @@ const PayPage = () => {
         dispatch(cleanCart());
     }
 
+
+
+
+
     if (!paid) {
         return (
             <div className="pp-pay-page">
                 <section className="pp-payment-section">
                     <CreditCardComponent totalPrice={totalPrice} handleSubmit={handleSubmit} />
                 </section>
-                
+
                 <section className="pp-movie-info-section">
-                    {cartItems.map((item) => (
+                    {cartItems.map((item) => {
+                        const imgPath = item.movie.poster_path ? `${imgUrl}${item.movie.poster_path}` : comingSoon;
+
+                        return (
                         <div key={item.movie.id} className="pp-movie-item">
                             <img
-                                src={`${imgUrl}${item.movie.poster_path}`}
+                                src={`${imgPath}`}
                                 alt="no image" />
                             <div className="pp-movie-texts">
                                 <h2>{item.movie.title.length > 20
@@ -46,7 +53,9 @@ const PayPage = () => {
                                 <p>Price: {item.price * item.quantity} kr.</p>
                             </div>
                         </div>
-                    ))}
+                        )
+                    })}
+       
 
 
                 </section>

@@ -68,6 +68,7 @@
 
 .detailPageMovieImg {
     border-radius: 0.6rem;
+    max-width: 200px;
 }
 
 .detailPageTopInfo {
