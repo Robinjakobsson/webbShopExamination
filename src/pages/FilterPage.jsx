@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import Divider from '@mui/material/Divider'
 import '../css/filter-page.css'
 import { useDispatch, useSelector } from 'react-redux'
 import HorizontalListCard from '../components/HorizontalListCard'
