@@ -1,6 +1,6 @@
 import { Link } from 'react-router'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faCartShopping, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 import { faBookOpen } from '@fortawesome/free-solid-svg-icons';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
@@ -14,6 +14,7 @@ const HeaderComponent = () => {
 
     const userCart = useSelector((state) => state.cart.cartItems);
     const [displayQuantity, setDisplayQuantity] = useState(0);
+    const [menuOpen, setMenuOpen] = useState(false);
 
     useEffect(() => {
         const total = userCart.reduce((sum, item) => sum + item.quantity, 0);
@@ -22,7 +23,12 @@ const HeaderComponent = () => {
 
     return (
         <header className="mainHeader">
-            <section className='centerSection'>
+            <section className="centerSection">
+            <button className="menuToggle" onClick={() => setMenuOpen (!menuOpen)} aria-label="Toggle menu">
+                <FontAwesomeIcon icon ={menuOpen ? faXmark : faBars}/>
+            </button>
+
+                <nav className={`menuLinks ${menuOpen ? 'active' : ''}`}>
                 <Link to="/" title='Home'>
                     <FontAwesomeIcon icon={faHome} className='icon'/>
                     <p>Home</p>
@@ -44,6 +50,7 @@ const HeaderComponent = () => {
                     <FontAwesomeIcon icon={faCcDiscover} className='icon' />
                     <p>Discover</p>
                 </Link>
+                </nav>
                 </section>
                 
 
