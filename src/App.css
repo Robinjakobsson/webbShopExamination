@@ -8,7 +8,7 @@
   align-items: center;
   justify-content: space-between;
   background: linear-gradient(to top, var(--background-color), var(--gradient-color));
-  height: 5rem;
+  height: auto;
   padding: 0 2px;
   
 }
@@ -54,11 +54,13 @@
 .centerSection {
   display: flex;
   justify-content: center;
+  flex-direction: row;
   flex-grow: 1;
   align-items: center;
   gap: 2rem;
   margin-left: 12rem;
-
+  height: 5rem;
+  
 }
 
 .headerCartContainer {
@@ -108,4 +110,72 @@
 .mainFooterDeadLinks {
   display: flex;
   flex-direction: row;
+}
+
+/* Hamburgarmeny */
+
+.menuToggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text-color);
+  font-size: 2rem;
+  margin-left: 1rem;
+  cursor: pointer;
+}
+
+.menuLinks {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+@media (max-width: 886px){
+  .centerSection {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    margin-left: 0;
+  }
+
+  .centerSection .menuLinks {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--background-color);
+    padding: 1rem 0;
+    text-align: center;
+    gap: 1rem;
+    z-index: 15;
+    width: 100%;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  .centerSection .menuLinks.active {
+    display: flex;
+  }
+
+  .menuToggle {
+    display: block;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 20;
+  }
+
+  
+
+  .rightSection {
+    margin-right: 0.5rem;
+  }
 }

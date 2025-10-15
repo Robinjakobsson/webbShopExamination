@@ -1,8 +1,5 @@
 import { Link } from 'react-router'
 import '../css/welcome-page.css'
-import { useDispatch } from 'react-redux'
-import { useEffect } from 'react';
-import { fetchAllMovies } from '../features/moviesSlice';
 import Particles from '../components/BackgroundParticles';
 
 const WelcomePage = () => {

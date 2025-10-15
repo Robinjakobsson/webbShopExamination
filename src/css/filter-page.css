@@ -54,3 +54,22 @@
   background-color: var(--text-color);
   color: var(--button-background-color);
 }
+/*MEDIA QUERIES*/
+@media (max-width: 900px) {
+  .filterPageGenreButtons {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .filterPageGenreButtons {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 400px) {
+  .filterPageGenreButtons {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
