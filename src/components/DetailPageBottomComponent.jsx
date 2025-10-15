@@ -44,7 +44,7 @@ const DetailPageBottomComponent = ({ movie }) => {
         } */}
 
         {isAdded &&
-          <p>You added this movie to your cart</p>
+          <p className="addText">You added this movie to your cart</p>
         }
     </article>
 
