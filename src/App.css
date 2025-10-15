@@ -8,7 +8,7 @@
   align-items: center;
   justify-content: space-between;
   background: linear-gradient(to top, var(--background-color), var(--gradient-color));
-  height: 5rem;
+  height: auto;
   padding: 0 2px;
   
 }
@@ -58,7 +58,7 @@
   align-items: center;
   gap: 2rem;
   margin-left: 12rem;
-
+  height: 5rem;
 }
 
 .headerCartContainer {
