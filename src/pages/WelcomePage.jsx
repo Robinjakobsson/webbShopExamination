@@ -8,7 +8,7 @@ const WelcomePage = () => {
         <section className="welcomePage">
             <div className="particles-wrapper">
                 <Particles
-                particleColors={['#FFFFFF'/*magenta*/, '#7A7878'/*limegrön*/, '#ee8b29'/*isblå */]} // ändrar färgerna på partiklarna, kan lägga till fler
+                particleColors={['#FFFFFF'/*vit*/, '#7A7878'/*grå*/, '#ee8b29'/*orange */]} // ändrar färgerna på partiklarna, kan lägga till fler
                 particleCount={500} //ändra antalet partiklar
                 particleSpread={5} //ändra tätheten på partiklarna
                 speed={0.1}

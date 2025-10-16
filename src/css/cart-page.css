@@ -52,6 +52,7 @@
 .cartPageMovieImg {
     border-radius: 0.3rem;
     max-width: 92px;
+    cursor: pointer;
 }
 
 .cartPageItemInfo {

@@ -1,11 +1,27 @@
 import comingSoon from '../assets/comingSoon.jpg'
+import { useDispatch, useSelector } from 'react-redux';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
+import { hideMovieDetailPage } from '../features/moviesSlice';
+
 
 
 const DetailPageTopComponent = ({movie, releaseYear, imgUrl, imgAltDefaultText, price}) => {
+    const dispatch = useDispatch();
+    const scrollPosition = useSelector((state) => state.movies.scrollPosition)
+
+    const closeMovieDetailPage = () => {
+        dispatch(hideMovieDetailPage())
+        setTimeout(() => {
+            window.scrollTo({ top: scrollPosition || 0, behavior: 'auto' });
+        }, 150);
+    }
 
     let imgPath = movie.poster_path ? `${imgUrl}${movie.poster_path}` : comingSoon
     return (
         <article className='detailPageTopBottomPart'>
+            
+            <FontAwesomeIcon icon={faCircleXmark} className='detailPageXicon' onClick={closeMovieDetailPage}/>
             <img className='detailPageMovieImg' src={imgPath} />
             <article className='detailPageTopInfo'>
                 <p>Price: {price}kr</p>
