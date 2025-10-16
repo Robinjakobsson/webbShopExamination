@@ -5,12 +5,15 @@ import { Link } from "react-router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { showMovieDetailPage } from "../features/moviesSlice";
 
+import comingSoon from '../assets/comingSoon.jpg'
 
 
 const SingleCartItemComponent = ({item}) => {
     const dispatch = useDispatch();
     const imgUrl = "https://image.tmdb.org/t/p/w92"
     console.log("Item: ", item)
+
+    let imgPath = item.movie.poster_path ? `${imgUrl}${item.movie.poster_path}` : comingSoon
 
     const openMovieDetailPage = () => {
         dispatch(showMovieDetailPage(item.movie))
@@ -21,9 +24,11 @@ const SingleCartItemComponent = ({item}) => {
         <>
             <article className='cartPageSingleCartItem'>
                 <article className='cartPageCartItemImgAndQuantity'>
-                    {/* <Link to="/detail" state={{movie: item.movie}}> */}
-                        <img className='cartPageMovieImg' src={`${imgUrl}${item.movie.poster_path}`} onClick={openMovieDetailPage}/>
-                    {/* </Link> */}
+                    <img 
+                        className='cartPageMovieImg' 
+                        src={imgPath} 
+                        onClick={openMovieDetailPage}
+                    />
                     
                     <article className='cartPageItemInfo'>
                         <p>{item.movie.title}</p>

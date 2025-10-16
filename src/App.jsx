@@ -1,6 +1,5 @@
 import { Outlet } from 'react-router'
 import './App.css'
-import WelcomePage from './pages/WelcomePage'
 import HeaderComponent from './components/HeaderComponent'
 import FooterComponent from './components/FooterComponent'
 import { useDispatch } from 'react-redux'

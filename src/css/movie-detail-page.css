@@ -68,6 +68,7 @@
 
 .detailPageMovieImg {
     border-radius: 0.6rem;
+    max-width: 200px;
 }
 
 .detailPageTopInfo {
@@ -137,6 +138,10 @@
         align-items: center;
     }
 
+   .detailPageBottomTopPart {
+    flex-direction: column;
+   }
+
     .detailPageBottomPart {
         align-items: center;
         padding-top: 2rem;
@@ -158,6 +163,8 @@
     .detailPage {
         width: 70%;
     }
+
+    
 
     .detailPageTopBottomPart {
         flex-direction: row;

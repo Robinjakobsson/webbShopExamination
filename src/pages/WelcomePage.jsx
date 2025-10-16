@@ -1,8 +1,5 @@
 import { Link } from 'react-router'
 import '../css/welcome-page.css'
-import { useDispatch } from 'react-redux'
-import { useEffect } from 'react';
-import { fetchAllMovies } from '../features/moviesSlice';
 import Particles from '../components/BackgroundParticles';
 
 const WelcomePage = () => {
@@ -11,7 +8,7 @@ const WelcomePage = () => {
         <section className="welcomePage">
             <div className="particles-wrapper">
                 <Particles
-                particleColors={['#FF00D9'/*magenta*/, '#04FF00'/*limegrön*/, '#00FFFB'/*isblå */]} // ändrar färgerna på partiklarna, kan lägga till fler
+                particleColors={['#FFFFFF'/*magenta*/, '#7A7878'/*limegrön*/, '#ee8b29'/*isblå */]} // ändrar färgerna på partiklarna, kan lägga till fler
                 particleCount={500} //ändra antalet partiklar
                 particleSpread={5} //ändra tätheten på partiklarna
                 speed={0.1}
