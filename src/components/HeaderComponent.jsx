@@ -7,11 +7,12 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { faCcDiscover } from '@fortawesome/free-brands-svg-icons';
 import DarkModeToggle from './DarkModeToggle';
 import { faFilm } from "@fortawesome/free-solid-svg-icons";
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
+import { hideMovieDetailPage } from '../features/moviesSlice';
 
 const HeaderComponent = () => {
-
+    const dispatch = useDispatch();
     const userCart = useSelector((state) => state.cart.cartItems);
     const [displayQuantity, setDisplayQuantity] = useState(0);
 
@@ -23,24 +24,24 @@ const HeaderComponent = () => {
     return (
         <header className="mainHeader">
             <section className='centerSection'>
-                <Link to="/" title='Home'>
-                    <FontAwesomeIcon icon={faHome} className='icon'/>
+                <Link to="/" title='Home' onClick={() => dispatch(hideMovieDetailPage())}>
+                    <FontAwesomeIcon icon={faHome} className='icon' />
                     <p>Home</p>
                 </Link>
-                <Link to="/library" title='Go to our library'>
-                    <FontAwesomeIcon icon={faBookOpen} className='icon'/>
+                <Link to="/library" title='Go to our library' onClick={() => dispatch(hideMovieDetailPage())}>
+                    <FontAwesomeIcon icon={faBookOpen} className='icon' />
                     <p>Library</p>
                     
                 </Link>
-                <Link to="/filter" className='searchLink'>
+                <Link to="/filter" className='searchLink' onClick={() => dispatch(hideMovieDetailPage())}>
                     <FontAwesomeIcon icon={faMagnifyingGlass} className='icon'  />
                     <p>Search</p>
                 </Link>
-                  <Link to="/new" title='New movies'>
+                  <Link to="/new" title='New movies' onClick={() => dispatch(hideMovieDetailPage())}>
                     <FontAwesomeIcon icon={faFilm} className='icon' />
                     <p>New</p>
                 </Link>
-                <Link to="/discover" title='Discover new films'>
+                <Link to="/discover" title='Discover new films' onClick={() => dispatch(hideMovieDetailPage())}>
                     <FontAwesomeIcon icon={faCcDiscover} className='icon' />
                     <p>Discover</p>
                 </Link>
@@ -49,8 +50,9 @@ const HeaderComponent = () => {
 
                 <section className='rightSection'>
                     <section className='headerCartContainer'>
-                    <Link to="/cart" title='Your cart' className='cartLink'>
+                    <Link to="/cart" title='Your cart' className='cartLink' onClick={() => dispatch(hideMovieDetailPage())}>
                         <FontAwesomeIcon icon={faCartShopping} className='icon' />
+                        {/* <FontAwesomeIcon icon={faCartShopping} className='icon' /> */}
                     </Link>
                     {userCart.length > 0 &&
                         <span className='headerCartItemDisplayBubble'>{displayQuantity}</span>

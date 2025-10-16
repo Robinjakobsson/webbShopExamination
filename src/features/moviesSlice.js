@@ -15,6 +15,9 @@ const initialState = {
     },
     status: 'idle',
     error: null,
+    showMovieDetail: false,
+    selectedMovie: null,
+    scrollPosition: 0
 }
 
         /**
@@ -73,7 +76,21 @@ export const fetchMovies = createAsyncThunk("movies/fetchMovies", async () => {
 const movieSlice = createSlice({
     name: 'movies',
     initialState,
-    reducers: {},
+    reducers: {
+        showMovieDetailPage: (state, action) => {
+            console.log("✅ showMovieDetailPage körs, payload:", action.payload);
+            state.selectedMovie = action.payload;
+            state.showMovieDetail = true;
+            state.scrollPosition = window.scrollY;
+        },
+        hideMovieDetailPage: (state) => {
+            state.selectedMovie = null;
+            state.showMovieDetail = false;
+        },
+        setSelectedMovie: (state, action) => {
+            state.selectedMovie = action.payload;
+        }
+    },
     extraReducers: (builder) => {
         builder.addCase(fetchAllMovies.pending, (state) => {
             state.status = 'loading'
@@ -91,4 +108,5 @@ const movieSlice = createSlice({
 })
 
 export default movieSlice.reducer
+export const {showMovieDetailPage, hideMovieDetailPage, setSelectedMovie} = movieSlice.actions;
 

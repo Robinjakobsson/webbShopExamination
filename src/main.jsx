@@ -36,7 +36,6 @@ const router = createHashRouter([
     children: [
       {index: true, Component: WelcomePage},
       {path: '/library', Component: LibraryPage},
-      {path: '/detail', Component: MovieDetailPage},
       {path: '/cart', Component: CartPage},
       {path: '/pay', Component: PayPage},
       {path: '/genre', Component: GenreDetailPage},
