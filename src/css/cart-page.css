@@ -51,6 +51,7 @@
 
 .cartPageMovieImg {
     border-radius: 0.3rem;
+    max-width: 92px;
 }
 
 .cartPageItemInfo {
@@ -73,6 +74,10 @@
     text-align: center;
 }
 
+.cartPageItemPiece {
+    font-size: 0.7rem;
+}
+
 .cartPageBtnQuantityContainer {
     display: flex;
     flex-direction: row;
@@ -91,9 +96,38 @@
 }
 
 .cartPageBtnDeleteCartItem {
-    background-color: transparent;
-    border: 0;
+    border: none;         
+    background: transparent; 
+    padding: 0;           
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
 }
+
+.cartPageBtnDeleteCartItem:hover {
+    background: transparent; 
+    cursor: pointer;
+}
+.cartPageBtnDeleteCartItem:focus {
+    outline: none;
+}
+
+.trashIcon {
+    font-size: 20px;
+    transition: .2s;
+}
+
+.trashIcon:hover {
+    background-color: transparent;
+    transform: scale(1.10);   
+}
+.trashIcon:active {
+    transform: scale(0.95);
+}
+
+
 
 .cartPagePay {
     display: flex;
@@ -114,7 +148,21 @@
     justify-content: center;
     height: 2rem;
     margin-top: 3rem;
-    padding: 1rem;
+
+    background-color: var(--button-background-color);
+    color: var(--button-text-color);
+    border-radius: 1rem;
+    max-width: fit-content;
+    padding: 0.5rem;
+    border: 1px solid var(--border-color);
+    transition: .2s ease-in-out;
+
+}
+
+
+.cartPageBtnPay:hover {
+    cursor: pointer;
+    background-color: var(--button-hover-background-color)
 }
 
 @media(max-width: 440px) {

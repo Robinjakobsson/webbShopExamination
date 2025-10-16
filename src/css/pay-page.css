@@ -210,3 +210,14 @@ button:hover {
         margin: 5px 0;
     }
 }
+
+.payPageCardLogos {
+    display: flex;
+    flex-direction: row;
+    gap: 0.4rem;
+}
+
+.cardLogos {
+    height: 1.7rem;
+    width: auto;
+}

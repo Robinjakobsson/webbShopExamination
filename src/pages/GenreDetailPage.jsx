@@ -8,14 +8,12 @@ const GenreDetailPage = () => {
     
     return (
         <>
-
-        
-        <section className='genreGrid'>
-            {movies.map((movie) => (
-                <HorizontalListCard key={movie.id} movie={movie} />
-            ))}
-        
-        </section>
+            <section className='genreGrid'>
+                {movies.map((movie) => (
+                    <HorizontalListCard key={movie.id} movie={movie} />
+                ))}
+            
+            </section>
         </>
     )
 }

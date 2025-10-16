@@ -10,10 +10,14 @@ const initialState = {
         kids: [],
         nowPlaying: [],
         genres: [],
+        languages: [],
         all: []
     },
     status: 'idle',
     error: null,
+    showMovieDetail: false,
+    selectedMovie: null,
+    scrollPosition: 0
 }
 
         /**
@@ -28,10 +32,11 @@ export const fetchAllMovies = createAsyncThunk("movies/fetchAllMovies", async ()
         upcoming: `https://api.themoviedb.org/3/movie/upcoming?api_key=${APIKEY}&language=en-US&page=1`,
         kids: `https://api.themoviedb.org/3/discover/movie?api_key=${APIKEY}&with_genres=16,10751&language=&page=1`,
         nowPlaying: `https://api.themoviedb.org/3/movie/now_playing?api_key=${APIKEY}&language=en-US&page=1`,
-        genres: `https://api.themoviedb.org/3/genre/movie/list?api_key=${APIKEY}&language=en`
+        genres: `https://api.themoviedb.org/3/genre/movie/list?api_key=${APIKEY}&language=en`,
+        languages: `https://api.themoviedb.org/3/configuration/languages?api_key=${APIKEY}`
     };
             // making an array of the different genres and using Promise.all to fetch every endpoint
-    const [popular, topRated, upcoming, kids, nowPlaying, genres] = await Promise.all(
+    const [popular, topRated, upcoming, kids, nowPlaying, genres, languages] = await Promise.all(
         Object.values(endpoints).map((url) => fetch(url).then(response => {
             const data = response.json();
             console.log(data)
@@ -47,6 +52,7 @@ export const fetchAllMovies = createAsyncThunk("movies/fetchAllMovies", async ()
         kids: kids.results,
         nowPlaying: nowPlaying.results,
         genres: genres.genres,
+        languages: languages,
         all: [
             ...popular.results,
             ...topRated.results,
@@ -70,7 +76,21 @@ export const fetchMovies = createAsyncThunk("movies/fetchMovies", async () => {
 const movieSlice = createSlice({
     name: 'movies',
     initialState,
-    reducers: {},
+    reducers: {
+        showMovieDetailPage: (state, action) => {
+            console.log("✅ showMovieDetailPage körs, payload:", action.payload);
+            state.selectedMovie = action.payload;
+            state.showMovieDetail = true;
+            state.scrollPosition = window.scrollY;
+        },
+        hideMovieDetailPage: (state) => {
+            state.selectedMovie = null;
+            state.showMovieDetail = false;
+        },
+        setSelectedMovie: (state, action) => {
+            state.selectedMovie = action.payload;
+        }
+    },
     extraReducers: (builder) => {
         builder.addCase(fetchAllMovies.pending, (state) => {
             state.status = 'loading'
@@ -88,4 +108,5 @@ const movieSlice = createSlice({
 })
 
 export default movieSlice.reducer
+export const {showMovieDetailPage, hideMovieDetailPage, setSelectedMovie} = movieSlice.actions;
 

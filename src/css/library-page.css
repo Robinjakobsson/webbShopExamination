@@ -12,6 +12,7 @@
 
 h1 {
   color: var(--text-color);
+  margin-left: 20px;
 }
 
 p {

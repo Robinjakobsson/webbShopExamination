@@ -32,3 +32,44 @@
   justify-items: center; 
 }
 
+.filterPageGenreButtons {
+  display: grid;
+  grid-template-columns: 10rem 10rem 10rem 10rem 10rem 10rem ;
+  justify-content: center;
+  gap: 0.4rem;
+  margin-bottom: 3rem;
+}
+
+.filterPageGenreButtons button {
+  padding: 0.3rem;
+}
+
+.filterPagePageButtons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.activeGenreButton {
+  background-color: var(--text-color);
+  color: var(--button-background-color);
+}
+/*MEDIA QUERIES*/
+@media (max-width: 900px) {
+  .filterPageGenreButtons {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .filterPageGenreButtons {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 400px) {
+  .filterPageGenreButtons {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+

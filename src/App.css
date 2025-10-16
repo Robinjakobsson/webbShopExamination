@@ -1,47 +1,93 @@
 .mainContent {
-
   flex: 1;
 }
 /*HEADER*/
 .mainHeader {
+  position: relative;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   background: linear-gradient(to top, var(--background-color), var(--gradient-color));
-  height: 2.5rem;
-  padding: 0 10px;
+  height: auto;
+  padding: 0 2px;
+  
 }
 
 .mainHeader a {
-  color: #777777;
+  color: inherit;
   text-decoration: none;
-  margin-right: 1rem;
-  transition: .3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+.mainHeader a:hover {
+  color: var(--button-hover-background-color);
+  transform: scale(1.10);
 }
 
-.mainheader a:active {
+.mainHeader a:active {
   transform: scale(0.95);
 }
 
-.mainHeader a:hover {
-  color: #fff;
-  transform: scale(1.05);
+.icon {
+  font-size: 1.5rem;
 }
 
-.mainHeader :last-child {
-  margin-right: 10px;
-  margin-left: auto;
-}
-
-.middle {
+/*Right Links*/
+.rightSection {
+  border-radius: 8px;
+  padding: 10px;
+  background-color: var(--text-color);
   display: flex;
-  gap: 1rem;
-  flex: 1;
-  justify-content: center;
+  align-items: center;
+  margin-right: 1rem;
+
 }
 
-.cartLink {
-  margin-left: auto;
+.rightSection svg {
+  color: var(--background-color)
+}
+/*Center Links*/
 
+.centerSection {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-grow: 1;
+  align-items: center;
+  gap: 2rem;
+  margin-left: 12rem;
+  height: 5rem;
+  
+}
+
+.headerCartContainer {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-right: 1rem;
+  
+  position: relative;
+  display: inline-block;
+  width: 2rem;
+}
+
+.headerCartItemDisplayBubble {
+  position: absolute; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: -6px;
+  right: -8px;
+  width: 19px;
+  height: 19px;
+  background-color: rgb(238, 139, 41);
+  color: white;
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: bold;
 }
 
 /*FOOTER*/
@@ -66,5 +112,70 @@
   flex-direction: row;
 }
 
-.mainFooterIcons {
+/* Hamburgarmeny */
+
+.menuToggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text-color);
+  font-size: 2rem;
+  margin-left: 1rem;
+  cursor: pointer;
+}
+
+.menuLinks {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+@media (max-width: 886px){
+  .centerSection {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    margin-left: 0;
   }
+
+  .centerSection .menuLinks {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--background-color);
+    padding: 1rem 0;
+    text-align: center;
+    gap: 1rem;
+    z-index: 15;
+    width: 100%;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  .centerSection .menuLinks.active {
+    display: flex;
+  }
+
+  .menuToggle {
+    display: block;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 20;
+  }
+
+  
+
+  .rightSection {
+    margin-right: 0.5rem;
+  }
+}
