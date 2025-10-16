@@ -48,6 +48,9 @@ button:active {
 --button-hover-background-color: #d5d5d5;
 --link-color: #151414;                
 --gradient-color: #ffffff;  
+--scrollbar-background-color: rgb(220, 220, 220);
+--scrollbar-thumb-color: rgb(243, 243, 243);
+--scroll-bar-thumb-hover-color: rgb(255, 255, 255);
 }
 
 body[mode='dark'] {
@@ -59,6 +62,9 @@ body[mode='dark'] {
 --button-hover-background-color: #272727; 
 --link-color: #82aaff;                 
 --gradient-color: #1a1a1a; 
+--scrollbar-background-color: rgb(42, 42, 42);
+--scrollbar-thumb-color: rgb(24, 24, 24);
+--scroll-bar-thumb-hover-color: rgb(0, 0, 0);
 }
 
 body {
