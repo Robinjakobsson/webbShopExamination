@@ -2,13 +2,26 @@ import { useSelector } from 'react-redux'
 import '../css/cart-page.css'
 import SingleCartItemComponent from '../components/SingleCartItemComponent';
 import { Link } from 'react-router';
+import MovieDetailPage from './MovieDetailPage';
+import { hideMovieDetailPage } from '../features/moviesSlice';
+import { useEffect } from 'react';
 
 const CartPage = () => {
+    const showMovieDetail = useSelector((state) => state.movies.showMovieDetail);
+    const selectedMovie = useSelector((state) => state.movies.selectedMovie);
     const userCart = useSelector((state) => state.cart.cartItems);
     const totalPrice = userCart.reduce((total, movie) => total + (movie.price * movie.quantity), 0);
 
+    useEffect(() => {
+        if(selectedMovie !== null) {
+            dispatch(hideMovieDetailPage());
+        }
+    }, [])
+
     return (
         <section className='cartPage'>
+            {!showMovieDetail &&
+            <>
             <p className='cartPageTitle'>Your cart</p>
 
             {userCart.length === 0 && (
@@ -34,7 +47,12 @@ const CartPage = () => {
                     </section>
                     
                 )}
-            
+                </>
+            }
+
+            {showMovieDetail && selectedMovie &&
+                <MovieDetailPage selectedMovie={selectedMovie}/>
+            }
         </section>
     )
 }

@@ -2,15 +2,28 @@ import '../css/library-page.css'
 import { useDispatch, useSelector } from 'react-redux'
 import HorizontalList from '../components/HorizontalList';
 import { useEffect } from 'react';
-import { fetchAllMovies } from '../features/moviesSlice';
+import { fetchAllMovies, hideMovieDetailPage } from '../features/moviesSlice';
+import MovieDetailPage from '../pages/MovieDetailPage';
 
 const LibraryPage = () => {
     const {movies: movies, status, error} = useSelector((state) => state.movies)
+    const showMovieDetail = useSelector((state) => state.movies.showMovieDetail);
+    const selectedMovie = useSelector((state) => state.movies.selectedMovie);
     const allMovies = movies.all;
     const dispatch = useDispatch();
     const genres = movies.genres;
 
     const moviesByGenre = {};
+    
+    useEffect(() => {
+        if(selectedMovie !== null) {
+            dispatch(hideMovieDetailPage());
+        }
+    }, [])
+
+
+//     console.log("🎬 showMovieDetail:", showMovieDetail);
+// console.log("🎞️ selectedMovie:", selectedMovie);
 
     genres.forEach((genre) => {
         const genreMovies = allMovies.filter((movie) =>
@@ -30,16 +43,23 @@ const LibraryPage = () => {
 
     return (
         <section className='librarySection'>
+            {!showMovieDetail && 
+            <>
             <HorizontalList movies={movies.popular} text={'Popular movies'} />
             <HorizontalList movies={movies.topRated} text={'Top rated movies'} />
             <HorizontalList movies={movies.nowPlaying} text={'Currently in theatres'} />
             <HorizontalList movies={movies.kids} text={'Kids movies'} />
-        {/*  <HorizontalList movies={movies.upcoming} text={'Upcoming movies'} /> */}
             {Object.entries(moviesByGenre).map(([genreName, genreMovies]) => (
                 genreMovies.length > 0 && (
                     <HorizontalList key={genreName} movies={genreMovies} text={`${genreName} movies`}/>
                 )
             ))}
+            </>
+            }
+
+            {showMovieDetail &&
+                <MovieDetailPage  />
+            }
         </section>
     )
 }

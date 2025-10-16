@@ -1,14 +1,19 @@
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import HorizontalListCard from "../components/HorizontalListCard";
 import "../css/discover-page.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowsRotate } from '@fortawesome/free-solid-svg-icons';
+import { hideMovieDetailPage, showMovieDetailPage } from "../features/moviesSlice";
+import MovieDetailPage from "./MovieDetailPage";
 
 
 const DiscoverPage = () => {
 
-    const { movies: movies, status, error } = useSelector((state) => state.movies)
+    const dispatch = useDispatch();
+    const showMovieDetail = useSelector((state) => state.movies.showMovieDetail);
+    const selectedMovie = useSelector((state) => state.movies.selectedMovie);
+    const {movies: movies, status, error} = useSelector((state) => state.movies)
     const allMovies = movies.all;
     const genres = movies.genres;
 
@@ -29,7 +34,20 @@ const DiscoverPage = () => {
 
     console.log('moviesByGenre', moviesByGenre)
 
+    useEffect(() => {
+        if(selectedMovie !== null) {
+            dispatch(hideMovieDetailPage());
+        }
+    }, [])
 
+    useEffect(() => {
+        generateSixteenRandomIndexes(allMovies);
+    }, []);
+
+    const openMovieDetailPage = () => {
+        dispatch(showMovieDetailPage(item.movie))
+        window.scrollTo({ top: 0 });
+    }
 
     function getRandomMovies() {
 
@@ -76,42 +94,65 @@ const DiscoverPage = () => {
         console.log('randomMovies', shuffled.slice(0, 16));
     }
 
-
     const generateSixteenRandomIndexes = (allMovies) => {
         setRandomMovies([]);
         getRandomMovies();
         console.log('allMovies', allMovies)
     }
 
-    useEffect(() => {
-        generateSixteenRandomIndexes(allMovies);
-    }, []);
+
 
     return (
         <section className="discoverPage">
-            <article className="discoverPageRefreshBtnContainer">
-                <button onClick={() => generateSixteenRandomIndexes(allMovies)}>
-                    <FontAwesomeIcon icon={faArrowsRotate} />
-                </button>
-            </article>
-            <section className="discoverPageRandomiserContainer">
-                <section className="discoverPageGenre" >
-                    <h3>Genre:</h3>
-                    <p>  {randomGenre}</p>
+            {!showMovieDetail &&
+            <>
+                <article className="discoverPageRefreshBtnContainer">
+                    <button onClick={() => generateSixteenRandomIndexes(allMovies)}>
+                        <FontAwesomeIcon icon={faArrowsRotate}/>
+                    </button>
+                </article>
+
+                <section className="discoverPageRandomiserContainer">
+                    <section className="discoverPageGenre" >
+                        <h3>Genre:</h3>
+                        <p>  {randomGenre}</p>
+                    </section>
+                    <section className="discoverPageLetter" >
+                        <h3>Letter:</h3>
+                        <p>{randomLetter}</p>
+                    </section>
                 </section>
-                <section className="discoverPageLetter" >
-                    <h3>Letter:</h3>
-                    <p>{randomLetter}</p>
+                <p className="noMoviesFoundText">{foundText}</p>
+                
+                <section className="discoverPageAllMovies genreGrid">
+                    {randomMovies.map((movie) => (
+                        <HorizontalListCard key={movie.id} movie={movie} className="discoverPageSingleMovie" onClick={openMovieDetailPage}/>
+                    ))}
                 </section>
-            </section>
-            <p className="noMoviesFoundText">{foundText}</p>
-            <section className="discoverPageAllMovies genreGrid">
-                {randomMovies.map((movie) => (
-                    <HorizontalListCard key={movie.id} movie={movie} className="discoverPageSingleMovie" />
-                ))}
-            </section>
+            </>
+            }
+
+            {showMovieDetail &&
+                <MovieDetailPage />
+            }
         </section>
     )
+
+    // return (
+    //     <section className="discoverPage">
+    //         <article className="discoverPageRefreshBtnContainer">
+    //             <button onClick={() => generateSixteenRandomIndexes(allMovies)}>
+    //                 <FontAwesomeIcon icon={faArrowsRotate} />
+    //             </button>
+    //         </article>
+            
+    //         <section className="discoverPageAllMovies genreGrid">
+    //             {randomMovies.map((movie) => (
+    //                 <HorizontalListCard key={movie.id} movie={movie} className="discoverPageSingleMovie" />
+    //             ))}
+    //         </section>
+    //     </section>
+    // )
 }
 
 export default DiscoverPage;

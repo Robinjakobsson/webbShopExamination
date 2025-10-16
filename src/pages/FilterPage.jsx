@@ -2,16 +2,19 @@ import { useEffect, useState } from 'react'
 import '../css/filter-page.css'
 import { useDispatch, useSelector } from 'react-redux'
 import HorizontalListCard from '../components/HorizontalListCard'
-import { fetchAllMovies } from '../features/moviesSlice'
+import { fetchAllMovies, hideMovieDetailPage } from '../features/moviesSlice'
 import { ClipLoader } from "react-spinners";
 import FilterPageGenreButtonsComponent from '../components/FilterPageGenreButtonsComponent'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
+import MovieDetailPage from './MovieDetailPage'
 
 const FilterPage = () => {
     const APIKEY = import.meta.env.VITE_API_KEY;
     const dispatch = useDispatch();
+    const showMovieDetail = useSelector((state) => state.movies.showMovieDetail);
+    const selectedMovie = useSelector((state) => state.movies.selectedMovie);
     const {movies: movies, status, error} = useSelector((state) => state.movies)
     const allMovies = movies.all;
     const [currentPage, setCurrentPage] = useState(1);
@@ -22,6 +25,11 @@ const FilterPage = () => {
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(false);
     
+    useEffect(() => {
+      if(selectedMovie !== null) {
+        dispatch(hideMovieDetailPage());
+      }
+    }, [])
     /**
      * If movies are empty we fetch again
      */
@@ -106,6 +114,8 @@ const FilterPage = () => {
     return (
         
       <div className="filterPageContainer">
+        {!showMovieDetail &&
+        <>
         <section className="inputContainer">
           <input
             type="text"
@@ -140,7 +150,12 @@ const FilterPage = () => {
           </button>
         </section>
         }
-    
+        </>
+      }
+
+      {showMovieDetail &&
+        <MovieDetailPage selectedMovie={selectedMovie}/>
+      }
       </div>
   );
 };

@@ -3,24 +3,32 @@ import { decreaseQuantity, deleteItem, increaseQuantity } from '../features/cart
 import {faTrash} from '@fortawesome/free-solid-svg-icons';
 import { Link } from "react-router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { showMovieDetailPage } from "../features/moviesSlice";
+
 import comingSoon from '../assets/comingSoon.jpg'
 
 
 const SingleCartItemComponent = ({item}) => {
-    const dispatcher = useDispatch();
+    const dispatch = useDispatch();
     const imgUrl = "https://image.tmdb.org/t/p/w92"
     console.log("Item: ", item)
 
-           let imgPath = item.movie.poster_path ? `${imgUrl}${item.movie.poster_path}` : comingSoon
+    let imgPath = item.movie.poster_path ? `${imgUrl}${item.movie.poster_path}` : comingSoon
 
-    
+    const openMovieDetailPage = () => {
+        dispatch(showMovieDetailPage(item.movie))
+        window.scrollTo({ top: 0 });
+    }
+
     return(
         <>
             <article className='cartPageSingleCartItem'>
                 <article className='cartPageCartItemImgAndQuantity'>
-                    <Link to="/detail" state={{movie: item.movie}}>
-                        <img className='cartPageMovieImg' src={imgPath}/>
-                    </Link>
+                    <img 
+                        className='cartPageMovieImg' 
+                        src={imgPath} 
+                        onClick={openMovieDetailPage}
+                    />
                     
                     <article className='cartPageItemInfo'>
                         <p>{item.movie.title}</p>
@@ -29,13 +37,13 @@ const SingleCartItemComponent = ({item}) => {
                             <p className="cartPageItemPiece">à {item.price} SEK</p>
                             <article className='cartPageBtnQuantityContainer'>
                                 <button 
-                                    onClick={() => dispatcher(decreaseQuantity(item))} 
+                                    onClick={() => dispatch(decreaseQuantity(item))} 
                                     className={`cartPageBtnSubtractQuantity ${item.quantity > 1 ? "several" : "one"}`}
                                     disabled={item.quantity <= 1}
                                 >
                                     -
                                 </button>
-                                <button onClick={() => dispatcher(increaseQuantity(item))} className='cartPageBtnAddQuantity'>+</button>
+                                <button onClick={() => dispatch(increaseQuantity(item))} className='cartPageBtnAddQuantity'>+</button>
                             </article>
                         </article>
                     </article>
@@ -43,7 +51,7 @@ const SingleCartItemComponent = ({item}) => {
 
                 <article className='cartPageDeleteBtnAndPriceContainer'>
                     <p> {item.price * item.quantity} kr</p>
-                    <button onClick={() => dispatcher(deleteItem(item))} className='cartPageBtnDeleteCartItem'>
+                    <button onClick={() => dispatch(deleteItem(item))} className='cartPageBtnDeleteCartItem'>
                         <FontAwesomeIcon icon={faTrash} className="trashIcon" />
                     </button>
                 </article>
