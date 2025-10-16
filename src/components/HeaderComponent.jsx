@@ -25,32 +25,40 @@ const HeaderComponent = () => {
     return (
         <header className="mainHeader">
             <section className='centerSection'>
-                {/* Två stycken faHome ikoner, kolla att allt funkar. */}
-                {/* <FontAwesomeIcon icon={faHome} className='icon' /> */}
 
                 <button className="menuToggle" onClick={() => setMenuOpen (!menuOpen)} aria-label="Toggle menu">
                     <FontAwesomeIcon icon ={menuOpen ? faXmark : faBars}/>
                 </button>
 
                 <nav className={`menuLinks ${menuOpen ? 'active' : ''}`}>
-                    <Link to="/" title='Home' onClick={() => dispatch(hideMovieDetailPage())}>
+                    <Link to="/" title='Home' onClick={() => 
+                        {dispatch(hideMovieDetailPage()); 
+                        setMenuOpen(false); }}>
                         <FontAwesomeIcon icon={faHome} className='icon'/>
                         <p>Home</p>
                     </Link>
-                    <Link to="/library" title='Go to our library' onClick={() => dispatch(hideMovieDetailPage())}>
+                    <Link to="/library" title='Go to our library' onClick={() => 
+                        {dispatch(hideMovieDetailPage()); 
+                        setMenuOpen(false); }}>
                         <FontAwesomeIcon icon={faBookOpen} className='icon' />
                         <p>Library</p>
                         
                     </Link>
-                    <Link to="/filter" className='searchLink' onClick={() => dispatch(hideMovieDetailPage())}>
+                    <Link to="/filter" className='searchLink' onClick={() => 
+                        {dispatch(hideMovieDetailPage()); 
+                        setMenuOpen(false); }}>
                         <FontAwesomeIcon icon={faMagnifyingGlass} className='icon'  />
                         <p>Search</p>
                     </Link>
-                    <Link to="/new" title='New movies' onClick={() => dispatch(hideMovieDetailPage())}>
+                    <Link to="/new" title='New movies' onClick={() => 
+                        {dispatch(hideMovieDetailPage()); 
+                        setMenuOpen(false); }}>
                         <FontAwesomeIcon icon={faFilm} className='icon' />
                         <p>New</p>
                     </Link>
-                    <Link to="/discover" title='Discover new films' onClick={() => dispatch(hideMovieDetailPage())}>
+                    <Link to="/discover" title='Discover new films' onClick={() => 
+                        {dispatch(hideMovieDetailPage()); 
+                        setMenuOpen(false); }}>
                         <FontAwesomeIcon icon={faCcDiscover} className='icon' />
                         <p>Discover</p>
                     </Link>
