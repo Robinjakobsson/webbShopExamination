@@ -132,7 +132,7 @@
   gap: 2rem;
 }
 
-@media (max-width: 886px){
+@media (max-width: 520px){
   .centerSection {
     position: relative;
     display: flex;
