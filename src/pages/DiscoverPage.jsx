@@ -30,7 +30,6 @@ useEffect(() => {
         }
     }, [])
 
-
     useEffect(() => {
         const getGenres = async () => {
             try {
