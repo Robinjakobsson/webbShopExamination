@@ -41,7 +41,7 @@ p {
     color: var(--text-color)
 }
 
-@media (max-width: 600px) {
+@media (max-width: 440px) {
     .welcomePage {
         display: flex;
         flex-direction: column;

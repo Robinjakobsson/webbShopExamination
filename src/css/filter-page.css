@@ -72,7 +72,7 @@
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 440px) {
   .filterPageGenreButtons {
     grid-template-columns: repeat(2, 1fr);
   }
