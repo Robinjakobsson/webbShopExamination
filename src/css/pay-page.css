@@ -1,7 +1,5 @@
 body {
     margin: 0;
-
-
 }
 
 .pp-pay-page {
@@ -16,7 +14,6 @@ body {
 }
 
 .pp-payment-section {
-
     display: flex;
     flex-direction: column;
     border: 1px solid var(--border-color);
@@ -32,18 +29,15 @@ body {
 }
 
 .pp-movie-info-section {
-
     text-align: center;
     display: flex;
     flex-direction: column;
     gap: 20px;
-
 }
 
 .pp-payment-section,
 .pp-movie-info-section {
     flex: 1 1 50%;
-
 }
 
 
@@ -51,7 +45,6 @@ body {
     display: flex;
     flex-direction: column;
     gap: 15px;
-
 }
 
 label {
@@ -98,7 +91,6 @@ button :hover {
     border-radius: 4px;
     width: fit-content;
     width: 300px;
-
 }
 
 .pp-movie-item img {
@@ -111,12 +103,10 @@ button :hover {
 }
 
 .pp-movie-texts {
-
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     text-align: left;
-
 }
 
 .pp-payment-complete {
@@ -142,16 +132,11 @@ h2 {
     margin: 20px;
     color: var(--button-text-color);
     padding: 10px;
-
     font-size: 16px;
-
     border-radius: 1rem;
     max-width: fit-content;
-
-
     border: 1px solid var(--border-color);
 }
-
 
 .pp-payment-complete button:hover {
     background-color: var(--button-hover-background-color)
@@ -160,8 +145,6 @@ h2 {
 button:hover {
     background-color: var(--button-hover-background-color)
 }
-
-
 
 @media (max-width: 500px) {
     .pp-pay-page {
@@ -180,13 +163,11 @@ button:hover {
 
     .pp-payment-section {
         width: 100%;
-
         border: none;
     }
 
     .pp-date-cvv-row {
         flex-direction: column;
-
     }
 
     .pp-movie-item {
@@ -201,9 +182,6 @@ button:hover {
     .pp-movie-item img {
         margin: 0 0 10px 0;
     }
-
- 
-    
 
     .pp-pay-button {
         width: 100%;

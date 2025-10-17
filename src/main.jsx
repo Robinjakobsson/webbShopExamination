@@ -5,7 +5,6 @@ import App from './App.jsx'
 import { createHashRouter } from 'react-router-dom'
 import WelcomePage from './pages/WelcomePage.jsx'
 import LibraryPage from './pages/LibraryPage.jsx'
-import MovieDetailPage from './pages/MovieDetailPage.jsx'
 import CartPage from './pages/CartPage.jsx'
 import PayPage from './pages/PayPage.jsx'
 import { RouterProvider } from 'react-router'
@@ -26,7 +25,6 @@ const store = configureStore({
     cart: cartReducer
   }
 })
-
 
 const router = createHashRouter([
   {
@@ -50,7 +48,7 @@ const router = createHashRouter([
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <Provider store={store}>
-    <RouterProvider router={router}/>
+      <RouterProvider router={router}/>
     </Provider>
   </StrictMode>,
 )

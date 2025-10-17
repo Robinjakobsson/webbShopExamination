@@ -29,7 +29,6 @@
     padding: 0.5rem;
     border: 1px solid var(--border-color);
     transition: .2s ease-in-out;
-
 }
 
 .welcomePageBtn:hover {
@@ -70,8 +69,6 @@ p {
         object-fit: cover;
         border-radius: 0;
         margin: 0;
-
-
     }
 
     .welcomePageMovieCard {
@@ -88,7 +85,6 @@ p {
         pointer-events: none;
         background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, var(--background-color) 100%);
     }
-
 }
 
 .particles-wrapper {

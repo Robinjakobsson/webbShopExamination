@@ -6,18 +6,16 @@ import CreditCardComponent from '../components/CreditCardComponent';
 import comingSoon from '../assets/comingSoon.jpg'
 
 const PayPage = () => {
-
     const dispatch = useDispatch();
     const cartItems = useSelector((state) => state.cart.cartItems);
     console.log(cartItems)
     const imgUrl = "https://image.tmdb.org/t/p/w92"
     const totalPrice = cartItems.reduce((total, movie) => total + (movie.price * movie.quantity), 0);
+    const [paid, setPaid] = useState(false);
 
     function backToLibrary() {
         window.location.href = '#/library';
     }
-
-    const [paid, setPaid] = useState(false);
 
     //doesn't let to proceed if some card fields are empty
     function handleSubmit(event) {
@@ -25,10 +23,6 @@ const PayPage = () => {
         setPaid(true);
         dispatch(cleanCart());
     }
-
-
-
-
 
     if (!paid) {
         return (
@@ -55,9 +49,6 @@ const PayPage = () => {
                         </div>
                         )
                     })}
-       
-
-
                 </section>
             </div>
         )

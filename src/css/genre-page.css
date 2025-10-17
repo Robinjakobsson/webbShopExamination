@@ -6,3 +6,9 @@
   margin: 0 auto;
 }
 
+.genrePageTitle {
+  display: flex;
+  justify-content: center;
+  margin: 2rem;
+}
+

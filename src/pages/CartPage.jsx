@@ -22,17 +22,17 @@ const CartPage = () => {
         <section className='cartPage'>
             {!showMovieDetail &&
             <>
-            <p className='cartPageTitle'>Your cart</p>
+                <p className='cartPageTitle'>Your cart</p>
 
-            {userCart.length === 0 && (
-                <p className='cartPagEmptyCartText'>Your cart is empty</p>
-            )}
+                {userCart.length === 0 && (
+                    <p className='cartPagEmptyCartText'>Your cart is empty</p>
+                )}
 
-            <section className='cartPageCartItems'>
-                {userCart.map((item) => (
-                    <SingleCartItemComponent key={item.movie.title} item={item} />
-                ))}
-            </section>
+                <section className='cartPageCartItems'>
+                    {userCart.map((item) => (
+                        <SingleCartItemComponent key={item.movie.title} item={item} />
+                    ))}
+                </section>
 
                 {userCart.length > 0 && (
                     <section className='cartPagePay'>
@@ -45,9 +45,8 @@ const CartPage = () => {
                         <button className='cartPageBtnPay'>CONTINUE TO PAYMENT</button>
                         </Link>
                     </section>
-                    
                 )}
-                </>
+            </>
             }
 
             {showMovieDetail && selectedMovie &&
