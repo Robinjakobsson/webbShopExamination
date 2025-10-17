@@ -37,3 +37,40 @@
         min-width: 150px;
         min-height: 75px;
 }
+
+@media (max-width: 440px) {
+
+.discoverPage {
+    padding: 5px;
+}
+
+.discoverPageAllMovies.genreGrid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+ justify-items: center;
+    width: 100%;
+
+}
+
+.discoverPageRandomiserContainer {
+    flex-direction: column;
+    width: 75%;
+    gap: 5px ;
+    align-items: center;
+}
+
+.noMoviesFoundText {
+    text-align: center;
+} 
+.discoverPageRefreshBtnContainer {
+    padding-top: 0rem;
+    padding-bottom: 1rem;
+}
+
+.discoverPageGenre, .discoverPageLetter {
+    max-width: 75px;
+    max-height: 50px;
+
+}
+
+}
