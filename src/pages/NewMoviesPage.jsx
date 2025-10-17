@@ -1,4 +1,3 @@
-
 import { useDispatch, useSelector } from "react-redux";
 import HorizontalListCard from "../components/HorizontalListCard";
 import "../css/new-movies-page.css";
@@ -25,7 +24,6 @@ export default function NewMoviesPage() {
     }
 
     return (
-        
         <div className="newMoviesContainer">
             {!showMovieDetail &&
             <>

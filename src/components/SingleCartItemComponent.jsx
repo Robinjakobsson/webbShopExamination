@@ -1,18 +1,14 @@
 import { useDispatch } from "react-redux";
 import { decreaseQuantity, deleteItem, increaseQuantity } from '../features/cartSlice';
 import {faTrash} from '@fortawesome/free-solid-svg-icons';
-import { Link } from "react-router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { showMovieDetailPage } from "../features/moviesSlice";
-
 import comingSoon from '../assets/comingSoon.jpg'
 
 
 const SingleCartItemComponent = ({item}) => {
     const dispatch = useDispatch();
     const imgUrl = "https://image.tmdb.org/t/p/w92"
-    console.log("Item: ", item)
-
     let imgPath = item.movie.poster_path ? `${imgUrl}${item.movie.poster_path}` : comingSoon
 
     const openMovieDetailPage = () => {
@@ -43,7 +39,12 @@ const SingleCartItemComponent = ({item}) => {
                                 >
                                     -
                                 </button>
-                                <button onClick={() => dispatch(increaseQuantity(item))} className='cartPageBtnAddQuantity'>+</button>
+                                <button 
+                                    onClick={() => dispatch(increaseQuantity(item))} 
+                                    className='cartPageBtnAddQuantity'
+                                >
+                                    +
+                                </button>
                             </article>
                         </article>
                     </article>

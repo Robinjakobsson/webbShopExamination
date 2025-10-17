@@ -1,6 +1,7 @@
 .mainContent {
   flex: 1;
 }
+
 /*HEADER*/
 .mainHeader {
   position: relative;
@@ -10,7 +11,6 @@
   background: linear-gradient(to top, var(--background-color), var(--gradient-color));
   height: auto;
   padding: 0 2px;
-  
 }
 
 .mainHeader a {
@@ -22,6 +22,7 @@
   font-size: 1rem;
   transition: transform 0.3s ease, color 0.3s ease;
 }
+
 .mainHeader a:hover {
   color: var(--button-hover-background-color);
   transform: scale(1.10);
@@ -43,14 +44,13 @@
   display: flex;
   align-items: center;
   margin-right: 1rem;
-
 }
 
 .rightSection svg {
   color: var(--background-color)
 }
-/*Center Links*/
 
+/*Center Links*/
 .centerSection {
   display: flex;
   justify-content: center;
@@ -60,7 +60,6 @@
   gap: 2rem;
   margin-left: 12rem;
   height: 5rem;
-  
 }
 
 .headerCartContainer {
@@ -68,7 +67,6 @@
   align-items: center;
   gap: 1.5rem;
   margin-right: 1rem;
-  
   position: relative;
   display: inline-block;
   width: 2rem;
@@ -132,7 +130,7 @@
   gap: 2rem;
 }
 
-@media (max-width: 886px){
+@media (max-width: 440px){
   .centerSection {
     position: relative;
     display: flex;
@@ -172,8 +170,6 @@
     cursor: pointer;
     z-index: 20;
   }
-
-  
 
   .rightSection {
     margin-right: 0.5rem;

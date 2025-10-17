@@ -9,30 +9,17 @@ import MovieDetailPage from "./MovieDetailPage";
 
 
 const DiscoverPage = () => {
-
-    const dispatch = useDispatch();
+    const APIKEY = import.meta.env.VITE_API_KEY;
     const showMovieDetail = useSelector((state) => state.movies.showMovieDetail);
     const selectedMovie = useSelector((state) => state.movies.selectedMovie);
-    const {movies: movies, status, error} = useSelector((state) => state.movies)
-    const allMovies = movies.all;
-    const genres = movies.genres;
-
-
+    const dispatch = useDispatch();
+    const [dbMovies, setDbMovies] = useState([]);
+    const [genres, setGenres] = useState([]);
     const [randomMovies, setRandomMovies] = useState([]);
     const [randomLetter, setRandomLetter] = useState("");
     const [randomGenre, setRandomGenre] = useState("");
     const [foundText, setFoundText] = useState("Press the button to randomise genre and letter!");
 
-    const moviesByGenre = {};
-
-    genres.forEach((genre) => {
-        const genreMovies = allMovies.filter((movie) =>
-            movie.genre_ids?.includes(genre.id)
-        )
-        moviesByGenre[genre.name] = genreMovies;
-    })
-
-    console.log('moviesByGenre', moviesByGenre)
 
     useEffect(() => {
         if(selectedMovie !== null) {
@@ -41,42 +28,67 @@ const DiscoverPage = () => {
     }, [])
 
     useEffect(() => {
-        generateSixteenRandomIndexes(allMovies);
+        const getGenres = async () => {
+            try {
+                const response = await fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=${APIKEY}&language=en-US`);
+                const data = await response.json();
+                setGenres(data.genres || []);
+            } catch (error) {
+                console.error("Error fetching genres:", error);
+            }
+        }
+
+        getGenres();
     }, []);
 
-    const openMovieDetailPage = () => {
-        dispatch(showMovieDetailPage(item.movie))
+
+    useEffect(() => {
+        const getMovies = async () => {
+            try {
+                const startPage = Math.floor(Math.random() * (500 - 5))
+
+                let allMovies = [];
+                // Fetch first 5 pages to have a larger pool of movies
+                for (let page = startPage; page <= startPage + 5; page++) {
+                    const response = await fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${APIKEY}&language=en-US&page=${page}`);
+                    const data = await response.json();
+                    if (data.results) allMovies = [...allMovies, ...data.results];
+                }
+                setDbMovies(allMovies);
+            } catch (error) {
+                console.error("Error fetching movies:", error);
+            }
+        }
+
+        getMovies();
+    }, []);
+
+    useEffect(() => {
+        if (dbMovies.length && genres.length) {
+            getRandomMovies();
+        }
+    }, [dbMovies, genres]);
+
+    const openMovieDetailPage = (movie) => {
+        dispatch(showMovieDetailPage(movie))
         window.scrollTo({ top: 0 });
     }
 
     function getRandomMovies() {
+        if (!dbMovies.length || !genres.length) return;
 
-        if (!allMovies.length || !genres.length) return;
-
-        //array of all genre names
-        const movieGenres = genres.map((genre) => genre.name)
-        const movieGenresIndex = Math.floor(Math.random() * movieGenres.length);
-        const chosenGenreName = movieGenres[movieGenresIndex];
-        console.log('randomGenre', randomGenre)
-
-
+        const movieGenre = genres[Math.floor(Math.random() * genres.length)];
+        const chosenGenreName = movieGenre.name;
+        const genreId = movieGenre.id;
         const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         const randomIndex = Math.floor(Math.random() * alphabet.length);
         const randomLetter = alphabet[randomIndex];
-        console.log('randomLetter', randomLetter)
 
-        const chosenGenre = genres.find((genre) => genre.name === chosenGenreName);
-        const chosenGenreId = chosenGenre ? chosenGenre.id : null;
-        console.log('chosenGenreId', chosenGenreId)
-
-        const filteredMovies = allMovies.filter(
-            movie =>
-                movie.genre_ids?.includes(chosenGenreId) &&
+        const filteredMovies = dbMovies.filter(
+            (movie) =>
+                movie.genre_ids?.includes(genreId) &&
                 movie.title.toLowerCase().includes(randomLetter.toLowerCase())
         );
-
-
-
 
         const shuffled = [...filteredMovies].sort(() => 0.5 - Math.random());
 
@@ -86,32 +98,21 @@ const DiscoverPage = () => {
 
         if (shuffled.length > 0) {
             setFoundText(`Here comes ${chosenGenreName.toLowerCase()} movies that have letter ${randomLetter} in them!`);
-        } else if (shuffled.length < 1) {
+        } else {
             setFoundText("No movies found, try again!");
         }
-        console.log('randomGenre', chosenGenre);
-        console.log('randomLetter', randomLetter);
-        console.log('randomMovies', shuffled.slice(0, 16));
     }
-
-    const generateSixteenRandomIndexes = (allMovies) => {
-        setRandomMovies([]);
-        getRandomMovies();
-        console.log('allMovies', allMovies)
-    }
-
-
 
     return (
         <section className="discoverPage">
+        
             {!showMovieDetail &&
             <>
                 <article className="discoverPageRefreshBtnContainer">
-                    <button onClick={() => generateSixteenRandomIndexes(allMovies)}>
-                        <FontAwesomeIcon icon={faArrowsRotate}/>
+                    <button onClick={getRandomMovies}>
+                        <FontAwesomeIcon icon={faArrowsRotate} />
                     </button>
                 </article>
-
                 <section className="discoverPageRandomiserContainer">
                     <section className="discoverPageGenre" >
                         <h3>Genre:</h3>
@@ -123,10 +124,9 @@ const DiscoverPage = () => {
                     </section>
                 </section>
                 <p className="noMoviesFoundText">{foundText}</p>
-                
                 <section className="discoverPageAllMovies genreGrid">
                     {randomMovies.map((movie) => (
-                        <HorizontalListCard key={movie.id} movie={movie} className="discoverPageSingleMovie" onClick={openMovieDetailPage}/>
+                    <HorizontalListCard key={movie.id} movie={movie} className="discoverPageSingleMovie" onClick={()=> openMovieDetailPage(movie)}/>
                     ))}
                 </section>
             </>
@@ -137,22 +137,6 @@ const DiscoverPage = () => {
             }
         </section>
     )
-
-    // return (
-    //     <section className="discoverPage">
-    //         <article className="discoverPageRefreshBtnContainer">
-    //             <button onClick={() => generateSixteenRandomIndexes(allMovies)}>
-    //                 <FontAwesomeIcon icon={faArrowsRotate} />
-    //             </button>
-    //         </article>
-            
-    //         <section className="discoverPageAllMovies genreGrid">
-    //             {randomMovies.map((movie) => (
-    //                 <HorizontalListCard key={movie.id} movie={movie} className="discoverPageSingleMovie" />
-    //             ))}
-    //         </section>
-    //     </section>
-    // )
 }
 
 export default DiscoverPage;

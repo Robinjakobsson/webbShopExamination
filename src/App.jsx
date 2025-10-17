@@ -10,9 +10,9 @@ function App() {
 
   const dispatch = useDispatch();
 
-    useEffect (() => {
-        dispatch(fetchAllMovies())
-    }, [dispatch])
+  useEffect (() => {
+      dispatch(fetchAllMovies())
+  }, [dispatch])
 
   return (
     <main className='mainGrid'>

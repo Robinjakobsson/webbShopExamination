@@ -35,30 +35,35 @@ button:active {
   border-color: var(--border-color);
   max-width: fit-content;
   padding: 0.5rem;
-
 }
 
 :root {
---inverted-color: #212121;
---background-color: #f5f5f5;          
---text-color: #000000;                 
---button-background-color: #e0e0e0; 
---button-text-color: #000000;         
---border-color: #cccccc;             
---button-hover-background-color: #d5d5d5;
---link-color: #151414;                
---gradient-color: #ffffff;  
+  --inverted-color: #212121;
+  --background-color: #f5f5f5;          
+  --text-color: #000000;                 
+  --button-background-color: #e0e0e0; 
+  --button-text-color: #000000;         
+  --border-color: #cccccc;             
+  --button-hover-background-color: #d5d5d5;
+  --link-color: #151414;                
+  --gradient-color: #ffffff;  
+  --scrollbar-background-color: rgb(220, 220, 220);
+  --scrollbar-thumb-color: rgb(243, 243, 243);
+  --scroll-bar-thumb-hover-color: rgb(255, 255, 255);
 }
 
 body[mode='dark'] {
   --background-color: #121212;           
---text-color: #e0e0e0;                 
---button-background-color: #1f1f1f;    
---button-text-color: #ffffff;          
---border-color: #333333;               
---button-hover-background-color: #272727; 
---link-color: #82aaff;                 
---gradient-color: #1a1a1a; 
+  --text-color: #e0e0e0;                 
+  --button-background-color: #1f1f1f;    
+  --button-text-color: #ffffff;          
+  --border-color: #333333;               
+  --button-hover-background-color: #272727; 
+  --link-color: #82aaff;                 
+  --gradient-color: #1a1a1a; 
+  --scrollbar-background-color: rgb(42, 42, 42);
+  --scrollbar-thumb-color: rgb(24, 24, 24);
+  --scroll-bar-thumb-hover-color: rgb(0, 0, 0);
 }
 
 body {
@@ -72,5 +77,5 @@ button {
   border-radius: 1rem;
   border: 1px solid var(--border-color);
   border-color: var(--border-color);
-   transition: ease-in-out .2s; 
+  transition: ease-in-out .2s; 
 }

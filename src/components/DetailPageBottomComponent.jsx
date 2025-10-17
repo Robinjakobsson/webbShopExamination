@@ -6,10 +6,8 @@ const DetailPageBottomComponent = ({ movie }) => {
   const dispatcher = useDispatch();
   const userCart = useSelector((state) => state.cart.cartItems);
   const cartItem = userCart.find((item) => item.movie.id === movie.id);
-
   const languages = useSelector((state) => state.movies.movies?.languages || []);
   const languageToDisplay = languages.find((language) => language.iso_639_1 === movie.original_language)
-
   const [isAdded, setIsAdded] = useState(false);
 
 
@@ -35,13 +33,6 @@ const DetailPageBottomComponent = ({ movie }) => {
     <>
       <article className='detailPageBottomTopPart'>
         <button onClick={btnClicked} className='detailPageBtnAddMovieToCart'>Add to cart</button>
-        {/* <button onClick={btnClicked2} className='detailPageBtnAddMovieToCart' disabled = {!cartItem || cartItem.quantity <= 0}>Decrease</button> */}
-        {/* {cartItem !== undefined &&
-          <p>Qty: {cartItem.quantity}</p>
-        } */}
-        {/* {cartItem === undefined &&
-          <p>Qty: 0</p>
-        } */}
 
         {isAdded &&
           <p className="addText">You added this movie to your cart</p>

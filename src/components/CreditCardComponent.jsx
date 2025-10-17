@@ -6,9 +6,6 @@ import { faCcVisa } from '@fortawesome/free-brands-svg-icons';
 
 export default function CreditCardComponent({ totalPrice, handleSubmit }) {
 
-
-
-    
     const [crash, setCrash] = useState(false);
 
     if (crash) {
@@ -35,10 +32,7 @@ export default function CreditCardComponent({ totalPrice, handleSubmit }) {
         }
         setCvv(value);
     }
-
-
-
-
+    
     const [date, setDate] = React.useState('');
 
     function checkDate(e) {

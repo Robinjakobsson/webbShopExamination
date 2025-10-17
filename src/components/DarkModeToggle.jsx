@@ -8,7 +8,7 @@ export default function DarkModeToggle() {
         localStorage.getItem('mode') || 'light'
     )
 
-// Effect to apply the mode to the document body and save it to localStorage whenever it changes
+    // Effect to apply the mode to the document body and save it to localStorage whenever it changes
     useEffect(() => {
         document.body.setAttribute("mode", mode)
         localStorage.setItem('mode', mode)
@@ -20,9 +20,9 @@ export default function DarkModeToggle() {
 
     return (
         <div className='darkModeContainer'>
-        <button className='dark-mode-toggle' onClick={toggleMode}> 
-            {mode === 'light' ? 'Switch to 🌙' : 'Switch to ☀️'}
+            <button className='dark-mode-toggle' onClick={toggleMode}> 
+                {mode === 'light' ? 'Switch to 🌙' : 'Switch to ☀️'}
             </button> 
-    </div>
+        </div>
     )
 }
