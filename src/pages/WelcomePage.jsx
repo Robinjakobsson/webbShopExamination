@@ -18,11 +18,12 @@ const WelcomePage = () => {
                 disableRotation={false}
                 />
             </div>
-        <div className="welcomePageContent">
-        <Link className="welcomePageBtn" to="/library">Library Page</Link>
-        <p className="welcomePageText">Welcome to your favorite movie-site!</p>
-        <p className="welcomePageText">Everything there is to watch, in just one place!</p>
-        </div>
+            
+            <div className="welcomePageContent">
+                <Link className="welcomePageBtn" to="/library">Library Page</Link>
+                <p className="welcomePageText">Welcome to your favorite movie-site!</p>
+                <p className="welcomePageText">Everything there is to watch, in just one place!</p>
+            </div>
         </section>
     );
 };

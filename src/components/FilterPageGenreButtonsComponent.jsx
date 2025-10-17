@@ -1,9 +1,7 @@
 import { useSelector } from "react-redux";
 
 
-
 const FilterPageGenreButtonsComponent = ({genreButtonPressed, selectedGenre}) => {
-
   const {movies: movies, status, error} = useSelector((state) => state.movies)
   const genres = movies.genres;
 

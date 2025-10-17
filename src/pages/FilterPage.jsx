@@ -30,6 +30,7 @@ const FilterPage = () => {
         dispatch(hideMovieDetailPage());
       }
     }, [])
+
     /**
      * If movies are empty we fetch again
      */
@@ -70,16 +71,15 @@ const FilterPage = () => {
      */
     const filteredMovies = allMovies.filter(movie => {
         const search = searchText.trim().toLowerCase();
-        const matchesSearch = 
-            movie.title.toLowerCase().includes(search)
-            return matchesSearch
+        const matchesSearch = movie.title.toLowerCase().includes(search)
+        return matchesSearch
     })
 
     // checks if data is null and shows data if data != null
     const moviesToShow = () => {
       if (data) {
         return data;
-      }else {
+      } else {
         return filteredMovies;
       }
     }
@@ -112,50 +112,49 @@ const FilterPage = () => {
 
 
     return (
-        
       <div className="filterPageContainer">
         {!showMovieDetail &&
         <>
-        <section className="inputContainer">
-          <input
-            type="text"
-            placeholder="Search for a movie"
-            value={searchText}
-            onChange={(handleInputSearchChange)}
-            className="inputFieldSearch"
-          />
-          <hr className="divider" />
-        </section>
+          <section className="inputContainer">
+            <input
+              type="text"
+              placeholder="Search for a movie"
+              value={searchText}
+              onChange={(handleInputSearchChange)}
+              className="inputFieldSearch"
+            />
+            <hr className="divider" />
+          </section>
 
-        <FilterPageGenreButtonsComponent genreButtonPressed={genreButtonPressed} selectedGenre={selectedGenre}/>
+          <FilterPageGenreButtonsComponent genreButtonPressed={genreButtonPressed} selectedGenre={selectedGenre}/>
 
-        <section className="movieGrid">
-          {loading ? (
-            <ClipLoader />
-          ) : (
-            moviesToShow().map((movie) => (
-              <HorizontalListCard key={movie.id} movie={movie} />
-            ))
-          )}
-        </section>
+          <section className="movieGrid">
+            {loading ? (
+              <ClipLoader />
+            ) : (
+              moviesToShow().map((movie) => (
+                <HorizontalListCard key={movie.id} movie={movie} />
+              ))
+            )}
+          </section>
 
-        {data && data.length > 0 &&
-          <section className='filterPagePageButtons'>
-          <button onClick={leftChevronBtnPressed}>
-            <FontAwesomeIcon icon={faChevronLeft}/>
-          </button>
-          <p>{currentPage}</p>
-          <button onClick={rightChevronBtnPressed}>
-            <FontAwesomeIcon icon={faChevronRight}/>
-          </button>
-        </section>
-        }
+          {data && data.length > 0 &&
+            <section className='filterPagePageButtons'>
+            <button onClick={leftChevronBtnPressed}>
+              <FontAwesomeIcon icon={faChevronLeft}/>
+            </button>
+            <p>{currentPage}</p>
+            <button onClick={rightChevronBtnPressed}>
+              <FontAwesomeIcon icon={faChevronRight}/>
+            </button>
+          </section>
+          }
         </>
-      }
+        }
 
-      {showMovieDetail &&
-        <MovieDetailPage selectedMovie={selectedMovie}/>
-      }
+        {showMovieDetail &&
+          <MovieDetailPage selectedMovie={selectedMovie}/>
+        }
       </div>
   );
 };

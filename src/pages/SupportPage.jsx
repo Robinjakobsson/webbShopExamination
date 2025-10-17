@@ -3,19 +3,16 @@ import '../css/support-page.css'
 export default function SupportPage() {
     return (
         <section className="supportPageSection">
-
             <h1>Support Page</h1>
             <p>If you have any questions or need assistance, please contact our support team! </p>
 
-
             <div className="emailPhoneContainer">
-
                 <section className="phone">
                     <h3>Want to talk to us directly?</h3>
                     <section className="phoneData">
                         <p>Phone: <a href="tel:+1234567890">+1 (234) 567-890</a>
                         </p>
-                        <p>Оpen hours: 9am - 5pm Mon-Fri</p>
+                        <p>Open hours: 9am - 5pm Mon-Fri</p>
                     </section>
                 </section>
 
@@ -32,9 +29,8 @@ export default function SupportPage() {
                             </p>
                         </div>
                     </section>
-                </section >
-
+                </section>
             </div>
-        </section >
+        </section>
     )
 }

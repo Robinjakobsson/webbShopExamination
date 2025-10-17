@@ -6,13 +6,17 @@
   margin: 0 auto;
 }
 
-@media (max-width: 440px) {
+.genrePageTitle {
+  display: flex;
+  justify-content: center;
+  margin: 2rem;
+}
 
-.genreGrid {
+@media (max-width: 440px) {
+  .genreGrid {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
- justify-items: center;
+    justify-items: center;
     width: 100%;
-
-}
+  }
 }

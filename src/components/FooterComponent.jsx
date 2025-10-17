@@ -7,23 +7,24 @@ const FooterComponent = () => {
 
     return(
         <footer className="mainFooter">
-
             <Link className="mainFooterDeadLinks" to="/support">
-            <p>Support</p></Link>
+                <p>Support</p>
+            </Link>
             <Link className="mainFooterDeadLinks" to="/">
-            <p>Cookie-policy</p></Link>
+                <p>Cookie-policy</p>
+            </Link>
             <span className="mainFooterIcons">
                 <a href="https://www.instagram.com">
-                <FontAwesomeIcon icon={faInstagram}/>
+                    <FontAwesomeIcon icon={faInstagram}/>
                 </a>
                 <a href="https://www.facebook.com">
-                <FontAwesomeIcon icon={faFacebook}/>
+                    <FontAwesomeIcon icon={faFacebook}/>
                 </a>
                 <a href="https://x.com/">
-                <FontAwesomeIcon icon={faXTwitter}/>
+                    <FontAwesomeIcon icon={faXTwitter}/>
                 </a>
                 <a href="https://github.com/Robinjakobsson/webbShopExamination/">
-                <FontAwesomeIcon icon={faSquareGithub}/>
+                    <FontAwesomeIcon icon={faSquareGithub}/>
                 </a>
             </span>
         </footer>

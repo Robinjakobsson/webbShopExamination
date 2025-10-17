@@ -25,52 +25,49 @@
     justify-content: center;
     gap: 10rem;
     margin-bottom: 2rem;
-
 }
 
 .discoverPageGenre, .discoverPageLetter {
     display: flex;
     flex-direction: column;
     align-items: center;
-        border: 1px solid var(--border-color);
-        padding: 10px;
-        min-width: 150px;
-        min-height: 75px;
+    border: 1px solid var(--border-color);
+    padding: 10px;
+    min-width: 150px;
+    min-height: 75px;
 }
 
 @media (max-width: 440px) {
 
-.discoverPage {
-    padding: 5px;
-}
+  .discoverPage {
+      padding: 5px;
+  }
 
-.discoverPageAllMovies.genreGrid {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
- justify-items: center;
-    width: 100%;
+  .discoverPageAllMovies.genreGrid {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      justify-items: center;
+      width: 100%;
+  }
 
-}
+  .discoverPageRandomiserContainer {
+      flex-direction: column;
+      width: 75%;
+      gap: 5px ;
+      align-items: center;
+  }
 
-.discoverPageRandomiserContainer {
-    flex-direction: column;
-    width: 75%;
-    gap: 5px ;
-    align-items: center;
-}
+  .noMoviesFoundText {
+      text-align: center;
+  } 
+  
+  .discoverPageRefreshBtnContainer {
+      padding-top: 0rem;
+      padding-bottom: 1rem;
+  }
 
-.noMoviesFoundText {
-    text-align: center;
-} 
-.discoverPageRefreshBtnContainer {
-    padding-top: 0rem;
-    padding-bottom: 1rem;
-}
-
-.discoverPageGenre, .discoverPageLetter {
-    max-width: 75px;
-    max-height: 50px;
-
-}
-
+  .discoverPageGenre, .discoverPageLetter {
+      max-width: 75px;
+      max-height: 50px;
+  }
 }

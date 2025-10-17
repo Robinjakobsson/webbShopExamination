@@ -10,11 +10,8 @@ import MovieDetailPage from "./MovieDetailPage";
 
 const DiscoverPage = () => {
     const APIKEY = import.meta.env.VITE_API_KEY;
-  
-   const showMovieDetail = useSelector((state) => state.movies.showMovieDetail);
+    const showMovieDetail = useSelector((state) => state.movies.showMovieDetail);
     const selectedMovie = useSelector((state) => state.movies.selectedMovie);
-
-
     const dispatch = useDispatch();
     const [dbMovies, setDbMovies] = useState([]);
     const [genres, setGenres] = useState([]);
@@ -24,7 +21,7 @@ const DiscoverPage = () => {
     const [foundText, setFoundText] = useState("Press the button to randomise genre and letter!");
 
 
-useEffect(() => {
+    useEffect(() => {
         if(selectedMovie !== null) {
             dispatch(hideMovieDetailPage());
         }
@@ -45,19 +42,18 @@ useEffect(() => {
     }, []);
 
 
-useEffect(() => {
-   const getMovies = async () => {
- try {
-    const startPage = Math.floor(Math.random() * (500 - 5))
+    useEffect(() => {
+        const getMovies = async () => {
+            try {
+                const startPage = Math.floor(Math.random() * (500 - 5))
 
-    let allMovies = [];
-    // Fetch first 5 pages to have a larger pool of movies
-    for (let page = startPage; page <= startPage + 5; page++) {
-
-                const response = await fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${APIKEY}&language=en-US&page=${page}`);
-                const data = await response.json();
-                if (data.results) allMovies = [...allMovies, ...data.results];
-            }
+                let allMovies = [];
+                // Fetch first 5 pages to have a larger pool of movies
+                for (let page = startPage; page <= startPage + 5; page++) {
+                    const response = await fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${APIKEY}&language=en-US&page=${page}`);
+                    const data = await response.json();
+                    if (data.results) allMovies = [...allMovies, ...data.results];
+                }
                 setDbMovies(allMovies);
             } catch (error) {
                 console.error("Error fetching movies:", error);
@@ -67,31 +63,26 @@ useEffect(() => {
         getMovies();
     }, []);
 
+    useEffect(() => {
+        if (dbMovies.length && genres.length) {
+            getRandomMovies();
+        }
+    }, [dbMovies, genres]);
 
-const openMovieDetailPage = (movie) => {
+    const openMovieDetailPage = (movie) => {
         dispatch(showMovieDetailPage(movie))
         window.scrollTo({ top: 0 });
     }
 
-
     function getRandomMovies() {
-
         if (!dbMovies.length || !genres.length) return;
 
-
-        
         const movieGenre = genres[Math.floor(Math.random() * genres.length)];
         const chosenGenreName = movieGenre.name;
         const genreId = movieGenre.id;
-        console.log('genreId', genreId)
-
-
         const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         const randomIndex = Math.floor(Math.random() * alphabet.length);
         const randomLetter = alphabet[randomIndex];
-        console.log('randomLetter', randomLetter)
-
-
 
         const filteredMovies = dbMovies.filter(
             (movie) =>
@@ -110,58 +101,41 @@ const openMovieDetailPage = (movie) => {
         } else {
             setFoundText("No movies found, try again!");
         }
-        console.log('randomGenre', chosenGenreName);
-        console.log('randomLetter', randomLetter);
-        console.log('randomMovies', shuffled.slice(0, 16));
     }
 
-
-
-    useEffect(() => {
-        if (dbMovies.length && genres.length) {
-            getRandomMovies();
-        }
-    }, [dbMovies, genres]);
-
     return (
-
-        
         <section className="discoverPage">
         
             {!showMovieDetail &&
             <>
-            <article className="discoverPageRefreshBtnContainer">
-                <button onClick={getRandomMovies}>
-                    <FontAwesomeIcon icon={faArrowsRotate} />
-                </button>
-            </article>
-            <section className="discoverPageRandomiserContainer">
-                <section className="discoverPageGenre" >
-                    <h3>Genre:</h3>
-                    <p>  {randomGenre}</p>
+                <article className="discoverPageRefreshBtnContainer">
+                    <button onClick={getRandomMovies}>
+                        <FontAwesomeIcon icon={faArrowsRotate} />
+                    </button>
+                </article>
+                <section className="discoverPageRandomiserContainer">
+                    <section className="discoverPageGenre" >
+                        <h3>Genre:</h3>
+                        <p>  {randomGenre}</p>
+                    </section>
+                    <section className="discoverPageLetter" >
+                        <h3>Letter:</h3>
+                        <p>{randomLetter}</p>
+                    </section>
                 </section>
-                <section className="discoverPageLetter" >
-                    <h3>Letter:</h3>
-                    <p>{randomLetter}</p>
+                <p className="noMoviesFoundText">{foundText}</p>
+                <section className="discoverPageAllMovies genreGrid">
+                    {randomMovies.map((movie) => (
+                    <HorizontalListCard key={movie.id} movie={movie} className="discoverPageSingleMovie" onClick={()=> openMovieDetailPage(movie)}/>
+                    ))}
                 </section>
-            </section>
-            <p className="noMoviesFoundText">{foundText}</p>
-            <section className="discoverPageAllMovies genreGrid">
-                {randomMovies.map((movie) => (
-                  <HorizontalListCard key={movie.id} movie={movie} className="discoverPageSingleMovie" onClick={()=> openMovieDetailPage(movie)}/>
-                ))}
-            </section>
-
-
-                   </>
+            </>
             }
 
             {showMovieDetail &&
                 <MovieDetailPage />
             }
         </section>
-
-
     )
 }
 

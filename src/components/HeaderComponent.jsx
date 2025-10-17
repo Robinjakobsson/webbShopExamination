@@ -42,7 +42,6 @@ const HeaderComponent = () => {
                         setMenuOpen(false); }}>
                         <FontAwesomeIcon icon={faBookOpen} className='icon' />
                         <p>Library</p>
-                        
                     </Link>
                     <Link to="/filter" className='searchLink' onClick={() => 
                         {dispatch(hideMovieDetailPage()); 
@@ -63,24 +62,22 @@ const HeaderComponent = () => {
                         <p>Discover</p>
                     </Link>
                 </nav>
-                </section>
+            </section>
                 
 
-                <section className='rightSection'>
-                    <section className='headerCartContainer'>
-                    <Link to="/cart" title='Your cart' className='cartLink' onClick={() => dispatch(hideMovieDetailPage())}>
-                        <FontAwesomeIcon icon={faCartShopping} className='icon' />
-                        {/* <FontAwesomeIcon icon={faCartShopping} className='icon' /> */}
-                    </Link>
-                    {userCart.length > 0 &&
-                        <span className='headerCartItemDisplayBubble'>{displayQuantity}</span>
-                    }
-                    </section>
-               
-              
-           
-            <DarkModeToggle />
+            <section className='rightSection'>
+                <section className='headerCartContainer'>
+                <Link to="/cart" title='Your cart' className='cartLink' onClick={() => dispatch(hideMovieDetailPage())}>
+                    <FontAwesomeIcon icon={faCartShopping} className='icon' />
+                    {/* <FontAwesomeIcon icon={faCartShopping} className='icon' /> */}
+                </Link>
+                {userCart.length > 0 &&
+                    <span className='headerCartItemDisplayBubble'>{displayQuantity}</span>
+                }
+                </section>
+                <DarkModeToggle />
             </section>
+            
         </header>
     )
 }

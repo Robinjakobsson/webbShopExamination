@@ -30,7 +30,6 @@ const MovieDetailPage = () => {
                 <DetailPageBottomComponent 
                 movie={selectedMovie} />
             </section>
-
         </section>
     )
 }

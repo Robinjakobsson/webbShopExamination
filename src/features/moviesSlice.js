@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
-const APIKEY = import.meta.env.VITE_API_KEY;
 
+const APIKEY = import.meta.env.VITE_API_KEY;
 
 const initialState = {
     movies: {
@@ -20,10 +20,10 @@ const initialState = {
     scrollPosition: 0
 }
 
-        /**
-         * Returns all movies from the endpoints listed
-         * To call for movies use {movies.genre.title} EXAMPLE
-         */
+/**
+ * Returns all movies from the endpoints listed
+ * To call for movies use {movies.genre.title} EXAMPLE
+ */
 export const fetchAllMovies = createAsyncThunk("movies/fetchAllMovies", async () => {
     const endpoints = {
         // placing all endpoints in an object called endpoints
@@ -35,7 +35,7 @@ export const fetchAllMovies = createAsyncThunk("movies/fetchAllMovies", async ()
         genres: `https://api.themoviedb.org/3/genre/movie/list?api_key=${APIKEY}&language=en`,
         languages: `https://api.themoviedb.org/3/configuration/languages?api_key=${APIKEY}`
     };
-            // making an array of the different genres and using Promise.all to fetch every endpoint
+    // making an array of the different genres and using Promise.all to fetch every endpoint
     const [popular, topRated, upcoming, kids, nowPlaying, genres, languages] = await Promise.all(
         Object.values(endpoints).map((url) => fetch(url).then(response => {
             const data = response.json();
@@ -65,7 +65,8 @@ export const fetchAllMovies = createAsyncThunk("movies/fetchAllMovies", async ()
         )
     };
 })
-    //Singular fetch method returns list of popular movies
+
+//Singular fetch method returns list of popular movies
 export const fetchMovies = createAsyncThunk("movies/fetchMovies", async () => {
     const response = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${APIKEY}&language=en_US&page=1`);
     const data = await response.json();
@@ -109,4 +110,3 @@ const movieSlice = createSlice({
 
 export default movieSlice.reducer
 export const {showMovieDetailPage, hideMovieDetailPage, setSelectedMovie} = movieSlice.actions;
-
